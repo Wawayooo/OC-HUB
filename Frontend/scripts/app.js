@@ -607,11 +607,9 @@ function updateAdminSection() {
   const nominees = JSON.parse(localStorage.getItem("club_nominees"));
   const ballots = JSON.parse(localStorage.getItem("club_ballots"));
 
-  // Update eligible voters input
   document.getElementById("total-eligible-voters").value =
     state.totalEligibleVoters;
 
-  // Update stats
   const statsDiv = document.getElementById("admin-stats");
   const totalNominees = Object.values(nominees).reduce(
     (sum, office) => sum + (office ? office.length : 0),
