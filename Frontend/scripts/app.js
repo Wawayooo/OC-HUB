@@ -640,9 +640,6 @@ function updateAdminSection() {
     `;
 }
 
-/**
- * Set election phase
- */
 function setPhase(phase) {
   if (!isAdminLoggedIn) {
     showToast("Admin access required", "error");
@@ -658,9 +655,6 @@ function setPhase(phase) {
   showToast(`Phase set to ${phase}`, "success");
 }
 
-/**
- * Update eligible voters count
- */
 function updateEligibleVoters() {
   if (!isAdminLoggedIn) {
     showToast("Admin access required", "error");
