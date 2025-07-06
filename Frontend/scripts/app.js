@@ -484,12 +484,14 @@ function drawResultsChart(results) {
   const canvas = document.getElementById("results-chart");
   const ctx = canvas.getContext("2d");
 
-  canvas.width = 800;
-  canvas.height = 400;
+  // Responsive canvas sizing
+  canvas.width = canvas.offsetWidth;
+  canvas.height =
+    40 + Object.values(results).flatMap(Object.values).length * 35;
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  const margin = { top: 20, right: 20, bottom: 60, left: 100 };
+  const margin = { top: 40, right: 40, bottom: 60, left: 160 };
   const chartWidth = canvas.width - margin.left - margin.right;
   const chartHeight = canvas.height - margin.top - margin.bottom;
 
@@ -511,8 +513,9 @@ function drawResultsChart(results) {
   }
 
   const maxVotes = Math.max(...chartData.map((d) => d.votes));
+  const rowHeight = 35;
+  const barHeight = 20;
 
-  const barHeight = chartHeight / chartData.length;
   const colors = [
     "#18BC9C",
     "#2C3E50",
@@ -520,30 +523,72 @@ function drawResultsChart(results) {
     "#E74C3C",
     "#F39C12",
     "#9B59B6",
+    "#27AE60",
+    "#34495E",
+    "#1ABC9C",
+    "#8E44AD",
   ];
 
-  chartData.forEach((data, index) => {
-    const barWidth = (data.votes / maxVotes) * chartWidth;
-    const y = margin.top + index * barHeight;
-    ctx.fillStyle = colors[index % colors.length];
-    ctx.fillRect(margin.left, y, barWidth, barHeight - 2);
-    ctx.fillStyle = "#2C3E50";
-    ctx.font = "7px system-ui";
-    ctx.textBaseline = "middle";
-    ctx.textAlign = "right";
-    ctx.fillText(
-      `${data.name} (${data.office})`,
-      margin.left - 10,
-      y + barHeight / 2 + 4
-    );
-    ctx.fillStyle = "#FFFFFF";
-    ctx.textAlign = "left";
-    ctx.fillText(`${data.votes}`, margin.left + 5, y + barHeight / 2 + 4);
-  });
+  ctx.font = "bold 20px system-ui";
   ctx.fillStyle = "#2C3E50";
-  ctx.font = "bold 16px system-ui";
   ctx.textAlign = "center";
-  ctx.fillText("Election Results", canvas.width / 2, 16);
+  ctx.fillText("Election Results", canvas.width / 2, 25);
+
+  let currentY = margin.top;
+  let lastOffice = null;
+
+  chartData.forEach((data, index) => {
+    if (data.office !== lastOffice) {
+      // Section label
+      ctx.font = "600 14px system-ui";
+      ctx.fillStyle = "#34495E";
+      ctx.textAlign = "left";
+      ctx.fillText(data.office, margin.left, currentY);
+      currentY += 20;
+      lastOffice = data.office;
+    }
+
+    // Background bar (grid line)
+    ctx.fillStyle = "#ECF0F1";
+    ctx.fillRect(margin.left, currentY, chartWidth, barHeight);
+
+    // Foreground vote bar
+    const barWidth = (data.votes / maxVotes) * chartWidth;
+    ctx.fillStyle = colors[index % colors.length];
+    ctx.beginPath();
+    ctx.moveTo(margin.left, currentY);
+    ctx.lineTo(margin.left + barWidth - 10, currentY);
+    ctx.quadraticCurveTo(
+      margin.left + barWidth,
+      currentY,
+      margin.left + barWidth,
+      currentY + 10
+    );
+    ctx.lineTo(margin.left + barWidth, currentY + barHeight - 10);
+    ctx.quadraticCurveTo(
+      margin.left + barWidth,
+      currentY + barHeight,
+      margin.left + barWidth - 10,
+      currentY + barHeight
+    );
+    ctx.lineTo(margin.left, currentY + barHeight);
+    ctx.closePath();
+    ctx.fill();
+
+    // Candidate name
+    ctx.fillStyle = "#2C3E50";
+    ctx.font = "13px system-ui";
+    ctx.textAlign = "right";
+    ctx.fillText(data.name, margin.left - 10, currentY + barHeight / 1.4);
+
+    // Vote count
+    ctx.fillStyle = "#FFFFFF";
+    ctx.font = "bold 13px system-ui";
+    ctx.textAlign = "left";
+    ctx.fillText(`${data.votes}`, margin.left + 10, currentY + barHeight / 1.4);
+
+    currentY += rowHeight;
+  });
 }
 
 /**
@@ -737,103 +782,6 @@ function exportCSV() {
 }
 
 /**
- * Seed demo data for testing
- */
-function seedDemo() {
-  if (!isAdminLoggedIn) {
-    showToast("Admin access required", "error");
-    return;
-  }
-
-  if (!confirm("This will add demo data to the election. Continue?")) {
-    return;
-  }
-
-  const demoNames = [
-    "Alex Johnson",
-    "Sam Wilson",
-    "Jordan Lee",
-    "Casey Brown",
-    "Taylor Davis",
-    "Morgan Garcia",
-    "Riley Martinez",
-    "Avery Rodriguez",
-    "Quinn Anderson",
-    "Sage Thompson",
-    "Blake White",
-    "Drew Lopez",
-  ];
-
-  const demoPlatforms = [
-    "Committed to transparency and student engagement in all decisions.",
-    "Focused on improving campus life and student services.",
-    "Dedicated to academic excellence and support programs.",
-    "Passionate about sustainability and environmental initiatives.",
-    "Advocate for student rights and fair representation.",
-    "Experienced in leadership and team collaboration.",
-    "Committed to financial responsibility and budget transparency.",
-    "Focused on community building and inclusive events.",
-    "Dedicated to improving communication between students and administration.",
-    "Passionate about mental health awareness and support services.",
-    "Advocate for diversity, equity, and inclusion initiatives.",
-    "Experienced in event planning and student activities.",
-  ];
-
-  // Add demo nominees
-  const nominees = {};
-  OFFICES.forEach((office, officeIndex) => {
-    nominees[office] = [];
-    for (let i = 0; i < 2; i++) {
-      const nameIndex = (officeIndex * 2 + i) % demoNames.length;
-      const platformIndex = (officeIndex * 2 + i) % demoPlatforms.length;
-      nominees[office].push({
-        name: demoNames[nameIndex],
-        office: office,
-        platform: demoPlatforms[platformIndex],
-        timestamp: new Date().toISOString(),
-      });
-    }
-  });
-
-  localStorage.setItem("club_nominees", JSON.stringify(nominees));
-
-  // Add demo votes
-  const ballots = {};
-  const votesLog = [];
-
-  for (let i = 0; i < 20; i++) {
-    const hashedId = simpleHash(`student${i + 1000}`);
-    const votes = {};
-
-    OFFICES.forEach((office) => {
-      if (nominees[office] && nominees[office].length > 0) {
-        // Random vote (90% chance to vote, 10% chance to abstain)
-        if (Math.random() < 0.9) {
-          const randomIndex = Math.floor(
-            Math.random() * nominees[office].length
-          );
-          votes[office] = nominees[office][randomIndex].name;
-        } else {
-          votes[office] = "ABSTAIN";
-        }
-      }
-    });
-
-    ballots[hashedId] = votes;
-    votesLog.push({
-      timestamp: new Date().toISOString(),
-      votes: votes,
-    });
-  }
-
-  localStorage.setItem("club_ballots", JSON.stringify(ballots));
-  localStorage.setItem("club_votes_log", JSON.stringify(votesLog));
-
-  updateDisplay();
-  showToast("Demo data seeded successfully", "success");
-}
-
-/**
  * Show toast notification
  */
 function showToast(message, type = "info") {
@@ -874,4 +822,3 @@ window.setPhase = setPhase;
 window.updateEligibleVoters = updateEligibleVoters;
 window.resetElection = resetElection;
 window.exportCSV = exportCSV;
-window.seedDemo = seedDemo;
