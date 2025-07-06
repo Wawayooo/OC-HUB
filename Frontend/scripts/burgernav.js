@@ -2,10 +2,9 @@ const hamburger = document.querySelector(".hamburger");
 const navMenu = document.getElementById("nav-menu");
 const navLinks = document.querySelectorAll(".nav-link");
 
-/* Toggle menu open/close */
 hamburger.addEventListener("click", () => {
   const expanded = hamburger.getAttribute("aria-expanded") === "true";
-  hamburger.setAttribute("aria-expanded", !expanded); // a11y
+  hamburger.setAttribute("aria-expanded", !expanded);
   navMenu.classList.toggle("open");
 
   /* Switch icon */
