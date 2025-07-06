@@ -525,37 +525,21 @@ function drawResultsChart(results) {
   chartData.forEach((data, index) => {
     const barWidth = (data.votes / maxVotes) * chartWidth;
     const y = margin.top + index * barHeight;
-
     ctx.fillStyle = colors[index % colors.length];
     ctx.fillRect(margin.left, y, barWidth, barHeight - 2);
-
-    const gradient = ctx.createLinearGradient(0, y, barWidth, y);
-    gradient.addColorStop(0, colors[index % colors.length]);
-    gradient.addColorStop(1, "#ffffff10");
-    ctx.fillStyle = gradient;
-    ctx.fillRect(margin.left, y, barWidth, barHeight - 6);
-    ctx.strokeStyle = "#34495E";
-    ctx.lineWidth = 1;
-    ctx.strokeRect(margin.left, y, barWidth, barHeight - 6);
-
-    ctx.fillStyle = "black";
-    ctx.font = "bold 12px system-ui";
-    ctx.marginLeft = 0;
-    ctx.textAlign = "right";
-    ctx.textAlign = "center";
+    ctx.fillStyle = "#2C3E50";
+    ctx.font = "7px system-ui";
     ctx.textBaseline = "middle";
-
+    ctx.textAlign = "right";
     ctx.fillText(
       `${data.name} (${data.office})`,
       margin.left - 10,
       y + barHeight / 2 + 4
     );
-
     ctx.fillStyle = "#FFFFFF";
     ctx.textAlign = "left";
     ctx.fillText(`${data.votes}`, margin.left + 5, y + barHeight / 2 + 4);
   });
-
   ctx.fillStyle = "#2C3E50";
   ctx.font = "bold 16px system-ui";
   ctx.textAlign = "center";
