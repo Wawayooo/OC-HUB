@@ -735,7 +735,6 @@ function exportCSV() {
     });
   });
 
-  // Download CSV
   const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
   const link = document.createElement("a");
   const url = URL.createObjectURL(blob);
@@ -752,9 +751,6 @@ function exportCSV() {
   showToast("Results exported to CSV", "success");
 }
 
-/**
- * Show toast notification
- */
 function showToast(message, type = "info") {
   const toast = document.getElementById("toast");
   toast.textContent = message;
@@ -766,9 +762,6 @@ function showToast(message, type = "info") {
   }, 3000);
 }
 
-/**
- * Simple hash function for student IDs
- */
 function simpleHash(str) {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
