@@ -90,10 +90,8 @@ function showSection(sectionName) {
     section.classList.remove("active");
   });
 
-  // Show selected section
   document.getElementById(sectionName + "-section").classList.add("active");
 
-  // Update navigation
   document.querySelectorAll(".nav-link").forEach((link) => {
     link.classList.remove("active");
   });
@@ -101,13 +99,9 @@ function showSection(sectionName) {
     .querySelector(`[data-section="${sectionName}"]`)
     .classList.add("active");
 
-  // Update section content
   updateSectionContent(sectionName);
 }
 
-/**
- * Update section content based on current phase
- */
 function updateSectionContent(sectionName) {
   const state = JSON.parse(localStorage.getItem("club_state"));
 
@@ -130,18 +124,13 @@ function updateSectionContent(sectionName) {
   }
 }
 
-/**
- * Update the display based on current state
- */
 function updateDisplay() {
   const state = JSON.parse(localStorage.getItem("club_state"));
   currentPhase = state.phase;
 
-  // Update phase indicator
   document.getElementById("current-phase").textContent =
     currentPhase.charAt(0).toUpperCase() + currentPhase.slice(1) + " Phase";
 
-  // Update all sections
   updateNominationSection();
   updateCampaignSection();
   updateVotingSection();
@@ -149,9 +138,6 @@ function updateDisplay() {
   updateAdminSection();
 }
 
-/**
- * Handle nomination form submission
- */
 function handleNominationSubmit(event) {
   event.preventDefault();
 
@@ -169,7 +155,6 @@ function handleNominationSubmit(event) {
     timestamp: new Date().toISOString(),
   };
 
-  // Validate input
   if (!nomination.name || !nomination.office || !nomination.platform) {
     showToast("Please fill in all fields", "error");
     return;
@@ -180,7 +165,6 @@ function handleNominationSubmit(event) {
     return;
   }
 
-  // Check for duplicate nominations
   const nominees = JSON.parse(localStorage.getItem("club_nominees"));
   if (!nominees[nomination.office]) {
     nominees[nomination.office] = [];
@@ -195,27 +179,20 @@ function handleNominationSubmit(event) {
     return;
   }
 
-  // Add nomination
   nominees[nomination.office].push(nomination);
   localStorage.setItem("club_nominees", JSON.stringify(nominees));
 
-  // Reset form
   event.target.reset();
 
-  // Update display
   updateNominationSection();
   showToast("Nomination submitted successfully", "success");
 }
 
-/**
- * Update nomination section
- */
 function updateNominationSection() {
   const state = JSON.parse(localStorage.getItem("club_state"));
   const nominees = JSON.parse(localStorage.getItem("club_nominees"));
   const display = document.getElementById("nominees-display");
 
-  // Check if nomination is active
   const form = document.getElementById("nomination-form");
   const submitBtn = form.querySelector('button[type="submit"]');
 
@@ -229,7 +206,6 @@ function updateNominationSection() {
     form.style.opacity = "1";
   }
 
-  // Display nominees
   display.innerHTML = "";
 
   if (Object.keys(nominees).length === 0) {
@@ -262,9 +238,6 @@ function updateNominationSection() {
   });
 }
 
-/**
- * Update campaign section
- */
 function updateCampaignSection() {
   const nominees = JSON.parse(localStorage.getItem("club_nominees"));
   const display = document.getElementById("campaign-display");
@@ -302,9 +275,6 @@ function updateCampaignSection() {
   });
 }
 
-/**
- * Update voting section
- */
 function updateVotingSection() {
   const state = JSON.parse(localStorage.getItem("club_state"));
   const nominees = JSON.parse(localStorage.getItem("club_nominees"));
@@ -312,7 +282,6 @@ function updateVotingSection() {
   const form = document.getElementById("voting-form");
   const submitBtn = form.querySelector('button[type="submit"]');
 
-  // Check if voting is active
   if (state.phase !== "voting") {
     submitBtn.disabled = true;
     submitBtn.textContent = "Voting Phase Not Active";
@@ -325,7 +294,6 @@ function updateVotingSection() {
     form.style.opacity = "1";
   }
 
-  // Generate ballot
   ballot.innerHTML = "";
 
   if (Object.keys(nominees).length === 0) {
@@ -365,9 +333,6 @@ function updateVotingSection() {
   });
 }
 
-/**
- * Handle voting form submission
- */
 function handleVotingSubmit(event) {
   event.preventDefault();
 
@@ -385,17 +350,14 @@ function handleVotingSubmit(event) {
     return;
   }
 
-  // Hash student ID for privacy
   const hashedId = simpleHash(studentId);
 
-  // Check if already voted
   const ballots = JSON.parse(localStorage.getItem("club_ballots"));
   if (ballots[hashedId]) {
     showToast("This Student ID has already voted", "error");
     return;
   }
 
-  // Collect votes
   const votes = {};
   OFFICES.forEach((office) => {
     const vote = formData.get(office);
@@ -409,11 +371,9 @@ function handleVotingSubmit(event) {
     return;
   }
 
-  // Save ballot
   ballots[hashedId] = votes;
   localStorage.setItem("club_ballots", JSON.stringify(ballots));
 
-  // Save to votes log for export
   const votesLog = JSON.parse(localStorage.getItem("club_votes_log"));
   votesLog.push({
     timestamp: new Date().toISOString(),
@@ -421,15 +381,11 @@ function handleVotingSubmit(event) {
   });
   localStorage.setItem("club_votes_log", JSON.stringify(votesLog));
 
-  // Reset form
   event.target.reset();
 
   showToast("Vote submitted successfully", "success");
 }
 
-/**
- * Update results section
- */
 function updateResultsSection() {
   const state = JSON.parse(localStorage.getItem("club_state"));
   const display = document.getElementById("results-display");
@@ -443,7 +399,6 @@ function updateResultsSection() {
   const ballots = JSON.parse(localStorage.getItem("club_ballots"));
   const results = calculateResults(nominees, ballots);
 
-  // Display turnout
   const totalVotes = Object.keys(ballots).length;
   const turnoutHtml = `
         <div class="turnout-stats">
@@ -455,7 +410,6 @@ function updateResultsSection() {
         </div>
     `;
 
-  // Display results
   let resultsHtml = turnoutHtml;
 
   OFFICES.forEach((office) => {
@@ -498,17 +452,12 @@ function updateResultsSection() {
 
   display.innerHTML = resultsHtml;
 
-  // Draw chart
   setTimeout(() => drawResultsChart(results), 100);
 }
 
-/**
- * Calculate election results
- */
 function calculateResults(nominees, ballots) {
   const results = {};
 
-  // Initialize results
   OFFICES.forEach((office) => {
     if (nominees[office] && nominees[office].length > 0) {
       results[office] = {};
@@ -531,26 +480,19 @@ function calculateResults(nominees, ballots) {
   return results;
 }
 
-/**
- * Draw results chart using Canvas
- */
 function drawResultsChart(results) {
   const canvas = document.getElementById("results-chart");
   const ctx = canvas.getContext("2d");
 
-  // Set canvas size
   canvas.width = 800;
   canvas.height = 400;
 
-  // Clear canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Chart configuration
   const margin = { top: 20, right: 20, bottom: 60, left: 100 };
   const chartWidth = canvas.width - margin.left - margin.right;
   const chartHeight = canvas.height - margin.top - margin.bottom;
 
-  // Prepare data
   const chartData = [];
   Object.entries(results).forEach(([office, candidates]) => {
     Object.entries(candidates).forEach(([name, votes]) => {
@@ -568,10 +510,8 @@ function drawResultsChart(results) {
     return;
   }
 
-  // Find max votes for scaling
   const maxVotes = Math.max(...chartData.map((d) => d.votes));
 
-  // Draw bars
   const barHeight = chartHeight / chartData.length;
   const colors = [
     "#18BC9C",
@@ -586,27 +526,36 @@ function drawResultsChart(results) {
     const barWidth = (data.votes / maxVotes) * chartWidth;
     const y = margin.top + index * barHeight;
 
-    // Draw bar
     ctx.fillStyle = colors[index % colors.length];
     ctx.fillRect(margin.left, y, barWidth, barHeight - 2);
 
-    // Draw label
-    ctx.fillStyle = "#2C3E50";
-    ctx.font = "12px system-ui";
+    const gradient = ctx.createLinearGradient(0, y, barWidth, y);
+    gradient.addColorStop(0, colors[index % colors.length]);
+    gradient.addColorStop(1, "#ffffff10");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(margin.left, y, barWidth, barHeight - 6);
+    ctx.strokeStyle = "#34495E";
+    ctx.lineWidth = 1;
+    ctx.strokeRect(margin.left, y, barWidth, barHeight - 6);
+
+    ctx.fillStyle = "black";
+    ctx.font = "bold 12px system-ui";
+    ctx.marginLeft = 0;
     ctx.textAlign = "right";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
     ctx.fillText(
       `${data.name} (${data.office})`,
       margin.left - 10,
       y + barHeight / 2 + 4
     );
 
-    // Draw vote count
     ctx.fillStyle = "#FFFFFF";
     ctx.textAlign = "left";
     ctx.fillText(`${data.votes}`, margin.left + 5, y + barHeight / 2 + 4);
   });
 
-  // Draw title
   ctx.fillStyle = "#2C3E50";
   ctx.font = "bold 16px system-ui";
   ctx.textAlign = "center";
