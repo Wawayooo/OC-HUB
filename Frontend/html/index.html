@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Club Election System</title>
+    <title>OC Club Election System</title>
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
-    <header>
+    <!--<header>
         <nav class="navbar" role="navigation" aria-label="Main navigation">
             <div class="nav-container">
                 <div class="nav-brand">
-                    <h1>Club Election System</h1>
+                    <h1>College of Computer Science Club Election Page</h1>
                 </div>
                 <ul class="nav-menu" role="menubar">
                     <li role="menuitem">
@@ -46,13 +46,45 @@
             <span id="current-phase">Nomination Phase</span>
             <span id="phase-timer"></span>
         </div>
+    </header>-->
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+            <div class="nav-brand">
+                <h1>College of Computer Science Club Election Page</h1>
+                <button
+                class="hamburger"
+                aria-label="Toggle navigation"
+                aria-controls="nav-menu"
+                aria-expanded="false"
+                >
+                ☰
+                </button>
+            </div>
+
+            <ul class="nav-menu" id="nav-menu" role="menubar">
+                <li role="menuitem"><button class="nav-link" data-section="nomination">Nominate</button></li>
+                <li role="menuitem"><button class="nav-link" data-section="campaign">Campaign</button></li>
+                <li role="menuitem"><button class="nav-link" data-section="voting">Vote</button></li>
+                <li role="menuitem"><button class="nav-link" data-section="results">Results</button></li>
+                <li role="menuitem"><button class="nav-link" data-section="admin">Admin</button></li>
+            </ul>
+            </div>
+        </nav>
+
+        <div class="phase-indicator" role="status" aria-live="polite">
+            <span id="current-phase">Nomination Phase</span>
+            <span id="phase-timer"></span>
+        </div>
     </header>
+
+
 
     <main class="main-content">
         <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
 
         <section id="nomination-section" class="section active" aria-labelledby="nomination-heading">
-            <h2 id="nomination-heading">Nomination Phase Page</h2>
+            <h2 id="nomination-heading">Nomination Phase</h2>
             <div class="section-content">
                 <div class="nomination-form-container">
                     <h3>Submit a Nomination</h3>
@@ -197,6 +229,9 @@
         </details>
     </footer>
 
+
     <script src="../scripts/app.js"></script>
+    <script src="../scripts/burgernav.js"></script>
+
 </body>
 </html>
