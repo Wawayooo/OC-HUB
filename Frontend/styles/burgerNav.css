@@ -1,0 +1,106 @@
+/* ----------------------------------------
+   NAV‑BAR: Mobile toggle & stacking layout
+   ---------------------------------------- */
+/* 🌐 Base styles */
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+/* ☰ Hamburger button base */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  color: #FFD700;
+}
+
+/* 📱 Mobile layout */
+@media (max-width: 768px) {
+  .nav-brand{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+  .nav-brand h1{
+    font-size: 10px;
+    position: relative;
+    top: 13px;
+  }
+  .hamburger {
+    display: block;
+    margin-left: auto;
+    margin-right: 8px;
+    bottom: 2px;
+    position: relative;
+  }
+  .hamburger:focus {
+    outline: none;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 130%;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0px 0px 5px black;
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .nav-menu.open {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .nav-menu li,
+  .nav-menu .nav-link {
+    width: 100%;
+    text-align: center;
+    animation: fadeInUp 0.3s ease forwards;
+    color: gold;
+    box-shadow: 0px 0px 4px black;
+  }
+
+  .hamburger[aria-expanded="true"] {
+    transform: rotate(90deg);
+  }
+}
+
+/* ✨ Nav link animation */
+ @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+
+
+
+
+
