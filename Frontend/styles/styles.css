@@ -6,7 +6,7 @@
 
 :root {
     --navy: #2C3E50;
-    --teal: #18BC9C;
+    --teal: maroon;
     --light-gray: #ECF0F1;
     --white: #FFFFFF;
     --danger: #E74C3C;
@@ -21,7 +21,7 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: var(--navy);
-    background-color: var(--light-gray);
+    background: linear-gradient(to bottom, maroon);
     min-height: 100vh;
 }
 
@@ -41,7 +41,7 @@ body {
 }
 
 header {
-    background: var(--white);
+    background: maroon;
     box-shadow: 0 2px 4px var(--shadow);
     position: sticky;
     top: 0;
@@ -64,10 +64,6 @@ header {
 .results-chart-container {
   width: 100%;
   margin: 0 auto;
-  padding: 1rem 1rem;
-  background: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 canvas#results-chart {
@@ -76,90 +72,8 @@ canvas#results-chart {
   display: block;
 }
 
-/* ----------------------------------------
-   NAV‑BAR: Mobile toggle & stacking layout
-   ---------------------------------------- */
-/* 🌐 Base styles */
-.nav-menu {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  transition: all 0.3s ease;
-}
-
-/* ☰ Hamburger button base */
-.hamburger {
-  display: none;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  z-index: 1000;
-  color: maroon;
-}
-
-/* 📱 Mobile layout */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-    margin-left: auto;
-  }
-
-  .nav-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    display: none;
-    flex-direction: column;
-    background-color: #ecf0f1;
-    padding: 1rem;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transform: translateY(-10px);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-
-  .nav-menu.open {
-    display: flex;
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .nav-menu li,
-  .nav-menu .nav-link {
-    width: 100%;
-    text-align: center;
-    animation: fadeInUp 0.3s ease forwards;
-  }
-
-  .hamburger[aria-expanded="true"] {
-    transform: rotate(90deg);
-  }
-}
-
-/* ✨ Nav link animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-
 .nav-brand h1 {
-    color: var(--navy);
+    color: white;
     font-size: 1.5rem;
     font-weight: 700;
 }
@@ -176,7 +90,7 @@ canvas#results-chart {
     border: none;
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
-    color: var(--navy);
+    color: white;
     cursor: pointer;
     transition: var(--transition);
     font-size: 1rem;
@@ -185,13 +99,14 @@ canvas#results-chart {
 
 .nav-link:hover,
 .nav-link:focus {
-    background-color: var(--teal);
+    background-color: black;
     color: var(--white);
     outline: none;
+    box-shadow: 2px 4px 6px white;
 }
 
 .nav-link.active {
-    background-color: var(--teal);
+    background-color: black;
     color: var(--white);
 }
 
@@ -208,11 +123,11 @@ canvas#results-chart {
     margin: 0 auto;
     padding: 2rem 1rem;
     min-height: calc(100vh - 200px);
-    background: linear-gradient(45deg,maroon,maroon);
+    background: linear-gradient(45deg,black);
     margin-top: 2%;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px gold;
     position: relative;
 }
 
@@ -318,6 +233,9 @@ canvas#results-chart {
 .btn-secondary {
     background: var(--navy);
     color: var(--white);
+    position: relative;
+    top: 4px;
+    box-shadow: 2px 4px 6px black;
 }
 
 .btn-secondary:hover,
@@ -482,7 +400,8 @@ canvas#results-chart {
     background: var(--light-gray);
     padding: 1.5rem;
     border-radius: var(--border-radius);
-    border: 1px solid #ddd;
+    border: 1px solid black;
+    filter: drop-shadow(2px 4px 6px black);
 }
 
 .office-ballot h4 {
@@ -527,11 +446,12 @@ canvas#results-chart {
 }
 
 .results-chart-container {
-    background: var(--white);
+    background: blanchedalmond;
     padding: 1.5rem;
     border-radius: var(--border-radius);
     border: 1px solid #ddd;
     text-align: center;
+    box-shadow: 2px 4px 6px black;
 }
 
 .results-chart-container canvas {
@@ -656,30 +576,34 @@ canvas#results-chart {
 }
 
 .help-section {
-    background: var(--white);
+    background: transparent;
     margin: 2rem 0;
     padding: 1.5rem;
     border-radius: var(--border-radius);
-    border: 1px solid #ddd;
 }
 
 .help-section summary {
     cursor: pointer;
     font-weight: 600;
-    color: var(--navy);
+    color: white;
     padding: 0.5rem;
     border-radius: var(--border-radius);
     transition: var(--transition);
 }
 
 .help-section summary:hover {
-    background: var(--light-gray);
+    box-shadow: 0px 0px 8px white;
 }
 
 .help-content {
     margin-top: 1rem;
     padding-top: 1rem;
     border-top: 1px solid #ddd;
+    background: white;
+    padding: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 12px gold;
 }
 
 .help-content h3,
@@ -705,7 +629,35 @@ canvas#results-chart {
 .help-content li {
     margin-bottom: 0.25rem;
 }
-
+.logoHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+.logoCircle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    filter: drop-shadow(0px 0px 5px gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logoHolder p{
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    position: relative;
+    bottom: -6px;
+}
+.logoCircle img{
+    width: 98%;
+    height: 98%;
+    border-radius: 50%;
+    position: relative;
+}
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
@@ -726,11 +678,15 @@ canvas#results-chart {
     }
     
     .section h2 {
-        font-size: 1.5rem;
+        font-size: 14px;
+        position: relative;
+        bottom: 2px;
     }
     
     .section-content {
         grid-template-columns: 1fr;
+        position: relative;
+        bottom: 20px;
     }
     
     .phase-controls .btn,
@@ -750,6 +706,29 @@ canvas#results-chart {
     
     .toast.show {
         transform: translateY(0);
+    }
+    .form-group label{
+        font-size: 12px;
+    }
+    .form-group small{
+        font-size: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: var(--border-radius);
+        font-size: 10px;
+        transition: var(--transition);
+    }
+
+    .btn-primary{
+        box-shadow: 0px 0px 4px maroon;
+    }
+    .btn-primary:hover{
+        box-shadow: 0px 0px 4px black;
     }
 }
 
@@ -771,6 +750,50 @@ canvas#results-chart {
     .btn {
         width: 100%;
         margin-bottom: 0.5rem;
+    }
+    .phase-indicator{
+        position: relative;
+        top: -25px;
+    }
+
+    header{
+        height: 70px;
+    }
+    .navbar {
+        padding: 1rem 0;
+        bottom: 13px;
+        position: relative;
+    }
+    #voting-form {
+        padding: 1rem;
+        background: white;
+        border: solid 0px white;
+    }
+
+    #results-chart{
+        position: relative;
+        right: 50px;
+    }
+    .turnout-stats{
+        font-size: 10px;
+    }
+    .tie{
+        font-size: 8px;
+    }
+    .winner{
+        font-size: 11px;
+    }
+    .vote-count span{
+        font-size: 8px;
+    }
+    .results-chart-container{
+        display: none;
+    }
+    .help-content * {
+        font-size: 10px;
+    }
+    .help-content h3 {
+        font-size: 12px;
     }
 }
 
