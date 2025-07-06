@@ -7,11 +7,9 @@ hamburger.addEventListener("click", () => {
   hamburger.setAttribute("aria-expanded", !expanded);
   navMenu.classList.toggle("open");
 
-  /* Switch icon */
   hamburger.textContent = expanded ? "☰" : "✕";
 });
 
-/* Close the menu after a link is chosen (mobile only) */
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     if (window.innerWidth <= 768) {
