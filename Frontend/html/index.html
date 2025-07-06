@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Club Election System</title>
+    <link rel="stylesheet" href="Frontend/styles/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Club Election System</h1>
+                </div>
+                <ul class="nav-menu" role="menubar">
+                    <li role="menuitem">
+                        <button class="nav-link" data-section="nomination" aria-label="Nomination section">
+                            Nominate
+                        </button>
+                    </li>
+                    <li role="menuitem">
+                        <button class="nav-link" data-section="campaign" aria-label="Campaign section">
+                            Campaign
+                        </button>
+                    </li>
+                    <li role="menuitem">
+                        <button class="nav-link" data-section="voting" aria-label="Voting section">
+                            Vote
+                        </button>
+                    </li>
+                    <li role="menuitem">
+                        <button class="nav-link" data-section="results" aria-label="Results section">
+                            Results
+                        </button>
+                    </li>
+                    <li role="menuitem">
+                        <button class="nav-link" data-section="admin" aria-label="Admin section">
+                            Admin
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="phase-indicator" role="status" aria-live="polite">
+            <span id="current-phase">Nomination Phase</span>
+            <span id="phase-timer"></span>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Toast notification -->
+        <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+
+        <!-- Nomination Section -->
+        <section id="nomination-section" class="section active" aria-labelledby="nomination-heading">
+            <h2 id="nomination-heading">Nomination Phase</h2>
+            <div class="section-content">
+                <div class="nomination-form-container">
+                    <h3>Submit a Nomination</h3>
+                    <form id="nomination-form" class="form">
+                        <div class="form-group">
+                            <label for="nominee-name">Nominee's Full Name</label>
+                            <input type="text" id="nominee-name" name="nominee-name" required 
+                                   aria-describedby="nominee-name-help">
+                            <small id="nominee-name-help">Enter the full name of the nominee</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="nominee-office">Office Position</label>
+                            <select id="nominee-office" name="nominee-office" required>
+                                <option value="">Select an office</option>
+                                <option value="President">President</option>
+                                <option value="Vice President">Vice President</option>
+                                <option value="Secretary">Secretary</option>
+                                <option value="Treasurer">Treasurer</option>
+                                <option value="Auditor">Auditor</option>
+                                <option value="Public Relations Officer">Public Relations Officer (PRO)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="nominee-platform">Campaign Platform</label>
+                            <textarea id="nominee-platform" name="nominee-platform" required 
+                                      placeholder="Describe the nominee's platform and goals..."
+                                      aria-describedby="platform-help"></textarea>
+                            <small id="platform-help">Maximum 500 characters</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Nomination</button>
+                    </form>
+                </div>
+                <div class="nominees-list-container">
+                    <h3>Current Nominees</h3>
+                    <div id="nominees-display" class="nominees-display"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campaign Section -->
+        <section id="campaign-section" class="section" aria-labelledby="campaign-heading">
+            <h2 id="campaign-heading">Campaign Phase</h2>
+            <div class="section-content">
+                <div id="campaign-display" class="campaign-display"></div>
+            </div>
+        </section>
+
+        <!-- Voting Section -->
+        <section id="voting-section" class="section" aria-labelledby="voting-heading">
+            <h2 id="voting-heading">Voting Phase</h2>
+            <div class="section-content">
+                <div class="voting-form-container">
+                    <form id="voting-form" class="form">
+                        <div class="form-group">
+                            <label for="student-id">Student ID</label>
+                            <input type="text" id="student-id" name="student-id" required 
+                                   aria-describedby="student-id-help">
+                            <small id="student-id-help">Enter your unique Student ID to vote</small>
+                        </div>
+                        <div id="voting-ballot" class="voting-ballot"></div>
+                        <button type="submit" class="btn btn-primary">Submit Vote</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-section" class="section" aria-labelledby="results-heading">
+            <h2 id="results-heading">Election Results</h2>
+            <div class="section-content">
+                <div id="results-display" class="results-display">
+                    <p>Results will be available after voting closes.</p>
+                </div>
+                <div class="results-chart-container">
+                    <canvas id="results-chart" aria-label="Election results bar chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Section -->
+        <section id="admin-section" class="section" aria-labelledby="admin-heading">
+            <h2 id="admin-heading">Admin Panel</h2>
+            <div class="section-content">
+                <div id="admin-login" class="admin-login">
+                    <form id="admin-login-form" class="form">
+                        <div class="form-group">
+                            <label for="admin-password">Admin Password</label>
+                            <input type="password" id="admin-password" name="admin-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                <div id="admin-panel" class="admin-panel" style="display: none;">
+                    <h3>Election Management</h3>
+                    <div class="admin-controls">
+                        <div class="form-group">
+                            <label for="total-eligible-voters">Total Eligible Voters</label>
+                            <input type="number" id="total-eligible-voters" min="1" value="50">
+                            <button type="button" class="btn btn-secondary" onclick="updateEligibleVoters()">Update</button>
+                        </div>
+                        <div class="phase-controls">
+                            <h4>Phase Control</h4>
+                            <button type="button" class="btn btn-secondary" onclick="setPhase('nomination')">Start Nomination</button>
+                            <button type="button" class="btn btn-secondary" onclick="setPhase('campaign')">Start Campaign</button>
+                            <button type="button" class="btn btn-secondary" onclick="setPhase('voting')">Start Voting</button>
+                            <button type="button" class="btn btn-secondary" onclick="setPhase('closed')">Close Election</button>
+                        </div>
+                        <div class="data-controls">
+                            <h4>Data Management</h4>
+                            <button type="button" class="btn btn-success" onclick="seedDemo()">Seed Demo Data</button>
+                            <button type="button" class="btn btn-primary" onclick="exportCSV()">Export Results (CSV)</button>
+                            <button type="button" class="btn btn-danger" onclick="resetElection()">Reset Election</button>
+                        </div>
+                    </div>
+                    <div id="admin-stats" class="admin-stats"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <details class="help-section">
+            <summary>Help & Instructions</summary>
+            <div class="help-content">
+                <h3>How to Use the Election System</h3>
+                <h4>For Voters:</h4>
+                <ul>
+                    <li><strong>Nomination Phase:</strong> Submit nominations for yourself or others</li>
+                    <li><strong>Campaign Phase:</strong> View candidate platforms and make your decision</li>
+                    <li><strong>Voting Phase:</strong> Use your Student ID to cast your vote (one vote per person)</li>
+                    <li><strong>Results:</strong> View results after voting closes</li>
+                </ul>
+                <h4>For Admins:</h4>
+                <ul>
+                    <li><strong>Password:</strong> Use "adminpass" to access admin panel</li>
+                    <li><strong>Phase Control:</strong> Manage election phases manually</li>
+                    <li><strong>Data Management:</strong> Export results, reset election, or seed demo data</li>
+                    <li><strong>Voter Settings:</strong> Set total eligible voters for turnout calculations</li>
+                </ul>
+                <h4>Technical Notes:</h4>
+                <ul>
+                    <li>All data is stored locally in your browser</li>
+                    <li>Student IDs are hashed to prevent duplicate voting while maintaining privacy</li>
+                    <li>The system works offline and requires no internet connection</li>
+                </ul>
+            </div>
+        </details>
+    </footer>
+
+    <script src="Frontend/scripts/app.js"></script>
+</body>
+</html>
