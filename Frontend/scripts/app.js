@@ -537,7 +537,6 @@ function drawResultsChart(results) {
 
   chartData.forEach((data, index) => {
     if (data.office !== lastOffice) {
-      // Section label
       ctx.font = "600 14px system-ui";
       ctx.fillStyle = "#34495E";
       ctx.textAlign = "left";
@@ -546,11 +545,9 @@ function drawResultsChart(results) {
       lastOffice = data.office;
     }
 
-    // Background bar (grid line)
     ctx.fillStyle = "#ECF0F1";
     ctx.fillRect(margin.left, currentY, chartWidth, barHeight);
 
-    // Foreground vote bar
     const barWidth = (data.votes / maxVotes) * chartWidth;
     ctx.fillStyle = colors[index % colors.length];
     ctx.beginPath();
@@ -573,13 +570,11 @@ function drawResultsChart(results) {
     ctx.closePath();
     ctx.fill();
 
-    // Candidate name
     ctx.fillStyle = "#2C3E50";
     ctx.font = "13px system-ui";
     ctx.textAlign = "right";
     ctx.fillText(data.name, margin.left - 10, currentY + barHeight / 1.4);
 
-    // Vote count
     ctx.fillStyle = "#FFFFFF";
     ctx.font = "bold 13px system-ui";
     ctx.textAlign = "left";
@@ -588,10 +583,6 @@ function drawResultsChart(results) {
     currentY += rowHeight;
   });
 }
-
-/**
- * Handle admin login
- */
 function handleAdminLogin(event) {
   event.preventDefault();
 
@@ -609,9 +600,6 @@ function handleAdminLogin(event) {
   }
 }
 
-/**
- * Update admin section
- */
 function updateAdminSection() {
   if (!isAdminLoggedIn) return;
 
