@@ -468,7 +468,6 @@ function calculateResults(nominees, ballots) {
     }
   });
 
-  // Count votes
   Object.values(ballots).forEach((ballot) => {
     Object.entries(ballot).forEach(([office, candidate]) => {
       if (results[office] && results[office].hasOwnProperty(candidate)) {
@@ -484,7 +483,6 @@ function drawResultsChart(results) {
   const canvas = document.getElementById("results-chart");
   const ctx = canvas.getContext("2d");
 
-  // Responsive canvas sizing
   canvas.width = canvas.offsetWidth;
   canvas.height =
     40 + Object.values(results).flatMap(Object.values).length * 35;
