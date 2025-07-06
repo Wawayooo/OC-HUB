@@ -677,9 +677,6 @@ function updateEligibleVoters() {
   showToast("Eligible voters count updated", "success");
 }
 
-/**
- * Reset entire election
- */
 function resetElection() {
   if (!isAdminLoggedIn) {
     showToast("Admin access required", "error");
@@ -710,9 +707,6 @@ function resetElection() {
   showToast("Election reset successfully", "success");
 }
 
-/**
- * Export results to CSV
- */
 function exportCSV() {
   if (!isAdminLoggedIn) {
     showToast("Admin access required", "error");
@@ -724,7 +718,6 @@ function exportCSV() {
   const votesLog = JSON.parse(localStorage.getItem("club_votes_log"));
   const results = calculateResults(nominees, ballots);
 
-  // Create CSV content
   let csvContent = "Office,Candidate,Votes\n";
 
   Object.entries(results).forEach(([office, candidates]) => {
