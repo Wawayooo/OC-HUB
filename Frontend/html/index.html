@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OC Club Election System</title>
     <link rel="stylesheet" href="../styles/styles.css">
+     <link rel="stylesheet" href="../styles/burgerNav.css">
 </head>
 <body>
     <!--<header>
@@ -84,11 +85,11 @@
         <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
 
         <section id="nomination-section" class="section active" aria-labelledby="nomination-heading">
-            <h2 id="nomination-heading">Nomination Phase</h2>
+            <h2 id="nomination-heading">Nomination Page</h2>
             <div class="section-content">
                 <div class="nomination-form-container">
                     <h3>Submit a Nomination</h3>
-                    <form id="nomination-form" class="form">
+                    <form id="nomination-form" class="form" style="box-shadow: 2px 4px 6px black;">
                         <div class="form-group">
                             <label for="nominee-name">Nominee's Full Name</label>
                             <input type="text" id="nominee-name" name="nominee-name" required 
@@ -125,14 +126,14 @@
         </section>
 
         <section id="campaign-section" class="section" aria-labelledby="campaign-heading">
-            <h2 id="campaign-heading">Campaign Phase</h2>
+            <h2 id="campaign-heading">Campaign Page</h2>
             <div class="section-content">
                 <div id="campaign-display" class="campaign-display"></div>
             </div>
         </section>
 
         <section id="voting-section" class="section" aria-labelledby="voting-heading">
-            <h2 id="voting-heading">Voting Phase</h2>
+            <h2 id="voting-heading">Voting Page</h2>
             <div class="section-content">
                 <div class="voting-form-container">
                     <form id="voting-form" class="form">
@@ -165,12 +166,12 @@
             <h2 id="admin-heading">Admin Panel</h2>
             <div class="section-content">
                 <div id="admin-login" class="admin-login">
-                    <form id="admin-login-form" class="form">
+                    <form id="admin-login-form" class="form" style="box-shadow: 2px 4px 6px black;">
                         <div class="form-group">
                             <label for="admin-password">Admin Password</label>
                             <input type="password" id="admin-password" name="admin-password" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" class="btn btn-primary" style="box-shadow: 2px 4px 6px black;">Login</button>
                     </form>
                 </div>
                 <div id="admin-panel" class="admin-panel" style="display: none;">
@@ -198,6 +199,12 @@
                 </div>
             </div>
         </section>
+        <div class="logoHolder">
+            <div class="logoCircle">
+                 <img src="../styles/assets/Img/oclogo.jpg" alt="OC Logo" class="oc-logo">
+            </div>
+            <p>Osmeña Colleges - Traditions of Excellence</p>
+        </div>
     </main>
 
     <footer>
@@ -212,18 +219,11 @@
                     <li><strong>Voting Phase:</strong> Use your Student ID to cast your vote (one vote per person)</li>
                     <li><strong>Results:</strong> View results after voting closes</li>
                 </ul>
-                <h4>For Admins:</h4>
+                <h4>For Administrators:</h4>
                 <ul>
-                    <li><strong>Password:</strong> Use "adminpass" to access admin panel</li>
-                    <li><strong>Phase Control:</strong> Manage election phases manually</li>
-                    <li><strong>Data Management:</strong> Export results, reset election, or seed demo data</li>
-                    <li><strong>Voter Settings:</strong> Set total eligible voters for turnout calculations</li>
-                </ul>
-                <h4>Technical Notes:</h4>
-                <ul>
-                    <li>All data is stored locally in your browser</li>
-                    <li>Student IDs are hashed to prevent duplicate voting while maintaining privacy</li>
-                    <li>The system works offline and requires no internet connection</li>
+                    <li><strong>Login:</strong> Use the admin password to access the admin panel</li>
+                    <li><strong>Manage Phases:</strong> Control the election phases (Nomination, Campaign, Voting)</li>
+                    <li><strong>Data Management:</strong> Update eligible voters, export results, and reset the election</li>
                 </ul>
             </div>
         </details>
