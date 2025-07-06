@@ -20,7 +20,6 @@ navLinks.forEach((link) => {
   });
 });
 
-/* Close on outside click */
 document.addEventListener("click", (e) => {
   if (
     !navMenu.contains(e.target) &&
@@ -33,7 +32,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-/* Close on Esc key */
 document.addEventListener("keyup", (e) => {
   if (e.key === "Escape" && navMenu.classList.contains("open")) {
     navMenu.classList.remove("open");
