@@ -53,7 +53,7 @@ header {
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 1rem;
     display: flex;
@@ -61,6 +61,102 @@ header {
     align-items: center;
     flex-wrap: wrap;
 }
+.results-chart-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+canvas#results-chart {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ----------------------------------------
+   NAV‑BAR: Mobile toggle & stacking layout
+   ---------------------------------------- */
+/* 🌐 Base styles */
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+/* ☰ Hamburger button base */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  color: maroon;
+}
+
+/* 📱 Mobile layout */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    margin-left: auto;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    background-color: #ecf0f1;
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .nav-menu.open {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .nav-menu li,
+  .nav-menu .nav-link {
+    width: 100%;
+    text-align: center;
+    animation: fadeInUp 0.3s ease forwards;
+  }
+
+  .hamburger[aria-expanded="true"] {
+    transform: rotate(90deg);
+  }
+}
+
+/* ✨ Nav link animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
 .nav-brand h1 {
     color: var(--navy);
@@ -100,7 +196,7 @@ header {
 }
 
 .phase-indicator {
-    background: var(--navy);
+        background-color: black;
     color: var(--white);
     padding: 0.5rem 1rem;
     text-align: center;
@@ -112,6 +208,12 @@ header {
     margin: 0 auto;
     padding: 2rem 1rem;
     min-height: calc(100vh - 200px);
+    background: linear-gradient(45deg,maroon,maroon);
+    margin-top: 2%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .section {
@@ -300,6 +402,9 @@ header {
     padding: 1rem;
     border-radius: var(--border-radius);
     border-left: 4px solid var(--teal);
+    margin-bottom: 10px;
+    margin-top: 8px;
+    filter: drop-shadow(0px 0px 2px black);
 }
 
 .nominee-card h4 {
@@ -713,3 +818,4 @@ header {
         border: 1px solid #ccc;
     }
 }
+
