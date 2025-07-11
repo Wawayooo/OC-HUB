@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Information System</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="./assets/styles/general_style/general.css">
+  <link rel="stylesheet" href="./assets/styles/general_style/homepage-nav-headers.css">
+  <link rel="stylesheet" href="./assets/styles/general_style/modals.css">
+  <link rel="stylesheet" href="./assets/styles/students_interface.css">
+  <link rel="stylesheet" href="./assets/styles/general_style/students_interface_responsive.css">
+</head>
+<body>
+  <div class="BurgerHolder">
+    <div class="headerText">
+      <h1>MyOsmeÑa</h1>
+      <p>Student Information System</p>
+    </div>
+
+    <div class="burger" onclick="toggleMenu()">
+      <span class="line" id="FLine"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </div>
+  </div>
+  <main>
+    <div class="Nav-Holder">
+      <nav class="nav-menu" id="MobileNav">
+        <nav>
+          <ul class="nav">
+            <li>
+              <a href="dashboard_interface.html" class="nav-link active"><i class="fa-solid fa-grip"></i> Dashboard</a>
+            </li>
+            <li class="student-navigation">
+              <a class="student-nav" href="#" >
+                <div class="sides">
+                  <i class="fa-solid fa-user-graduate"></i> Students
+                </div>
+                <i class="arrow-down fa-solid fa-angle-down"></i>
+              </a>
+              <ul class="submenu">
+                <li>
+                  <a class="submenu-link" href="students_interface.html">
+                    List of Students <i class="fa-solid fa-chevron-right"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="submenu-link" href="deanslisters_interface.html">
+                    Dean's Listers
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="submenu-link" href="sections_interface.html">
+                    Sections <i class="fa-solid fa-chevron-right"></i>
+                  </a>
+                  </li>
+                <li>
+                  <a class="submenu-link" href="subjects_interface.html">
+                    Subjects
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="org_clubs_interface.html" data-page="organizations"><i class="fa-solid fa-users"></i> Organization & Clubs</a>
+            </li>
+            <li>
+              <a href="documents_interface.html" data-page="documents"><i class="fa-regular fa-file-word"></i> Document Tools</a>
+            </li>
+            <li>
+              <a href="reports_interface.html" data-page="reports"><i class="fa-solid fa-chart-line"></i> Reports</a>
+            </li>
+            <li>
+              <a href="https://osmena-colleges.netlify.app" data-page="about">
+                <i class="fa-solid fa-circle-info"></i> About Us
+              </a>
+            </li>
+            <li>
+              <a href="index.html" data-page="reports">
+                <i class="fa-solid fa-arrow-left"></i> Go Back
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </nav>
+    </div>
+    <aside>
+      <div class="header">
+        <h1>MyOsmeÑa</h1>
+        <p>Student Information System</p>
+      </div>
+      <nav id="HeadNav">
+        <ul class="nav">
+          <li>
+            <a href="dashboard_interface.html" data-page="dashboard"><i class="fa-solid fa-grip"></i> Dashboard</a>
+          </li>
+          <li class="active">
+            <a class="student-nav nav-link " href="#" >
+              <div class="sides">
+                <i class="fa-solid fa-user-graduate"></i> Students
+              </div>
+              <i class="arrow-down fa-solid fa-angle-down"></i>
+            </a>
+            <ul class="submenu active">
+              <li>
+                <a class="submenu-link active" href="#">
+                  List of Students <i class="fa-solid fa-chevron-right"></i>
+                </a>
+              </li>
+              <li>
+                <a class="submenu-link" href="deanslisters_interface.html">
+                  Dean's Listers <i class="fa-solid fa-chevron-right"></i>
+                </a>
+              </li>
+              <li>
+                <a class="submenu-link" href="sections_interface.html">
+                  Sections <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                </li>
+              <li>
+                <a class="submenu-link" href="subjects_interface.html">
+                  Subjects
+                  <i class="fa-solid fa-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="org_clubs_interface.html" data-page="organizations"><i class="fa-solid fa-users"></i> Organization & Clubs</a>
+          </li>
+          <li>
+            <a href="documents_interface.html" data-page="documents"><i class="fa-regular fa-file-word"></i> Document Tools</a>
+          </li>
+          <li>
+            <a href="reports_interface.html" data-page="reports"><i class="fa-solid fa-chart-line"></i> Reports</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  
+    <section>
+      <div class="header">
+          <h1>Welcome, <span>Osmeñian</span>!</h1>
+          <div class="right-sec">
+            <a href="home_hub.html">
+              <i class="home fa-solid fa-house"></i>
+            </a>
+            
+            <button>
+              <div class="left">
+                <div class="img-cont">
+                  <img src="./assets/media/blank-profile-picture-973460.svg" alt="dp">
+                </div>
+              </div>
+              <div class="right">
+                <h4>Christian Jireh Briol</h4>
+                <p>Pres-CCSO</p>
+              </div>
+              <i class="fa-solid fa-caret-down"></i>
+            </button>
+          </div>
+        </div>
+
+      <div class="year-dashboard">
+        <div class="year-cards">
+          <a href="#">
+            <div class="year-card" data-filter-year="1">
+              <div class="year-infos">
+                <h2>Total of First year Students</h2>
+                <h1>360</h1>
+              </div>
+            </div>
+          </a>
+           <a href="#">
+            <div class="year-card" data-filter-year="2">
+              <div class="year-infos">
+                <h2>Total of Second year Student</h2>
+                <h1>360</h1>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="year-card" data-filter-year="3">
+              <div class="year-infos">
+                <h2>Total of Third year Students</h2>
+                <h1>360</h1>
+              </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="year-card" data-filter-year="4">
+            <div class="year-infos">
+              <h2>Total of Fourth year Students</h2>
+              <h1>360</h1>
+            </div>
+            </div>
+          </a>
+        </div>
+      </div> 
+
+    <div class="top-bar">
+      <div class="total">
+        <h2>Total Students <span>(360)</span></h2>
+      </div>
+      <div class="search-section">
+        <input type="text" id="searchInput" placeholder="Search Students" />
+          <select id="sortSelect">
+            <option>A-Z</option>
+            <option>Z-A</option>
+          </select>
+          <button class="btn" id="open-add-student-modal">Add +</button>
+      </div>
+    </div>
+
+    <div id="add-student-modal" class="modal">
+      <div class="add-student-modal">
+        <h2 style="font-family: var(--Poppins-Regular);
+  font-size: 1rem;">Add New Student</h2>
+        <form id="add-student-form" class="add-student-form">
+          <div class="left_form">
+            <div>
+              <label for="student-image" style="font-family: var(--Poppins-Regular); font-size: 0.9rem; margin-bottom: 10px; color: white;">Profile Picture</label>
+              <div class="image-preview-container">
+                <img id="image-preview" src="" alt="Image Preview">
+              </div>
+              
+              <input type="file" id="student-image" accept="image/*">
+            </div>
+
+            <div class="left_inputs">
+              <label for="student-name">First Name:</label>
+              <input type="text" id="First-name" required>
+              <label for="student-name">Middle Name:</label>
+              <input type="text" id="Middle-name" required>
+              <label for="student-name">Lastname Name:</label>
+              <input type="text" id="Last-name" required>
+              <label for="birthday">Birthday:</label>
+  <input type="date" id="birthday" required>
+
+              <label for="year-level">Year Level:</label>
+              <select id="year-level" required>
+                <option value="" disabled selected>Select Year Level</option>
+                <option value="1">First Year</option>
+                <option value="2">Second Year</option>
+                <option value="3">Third Year</option>
+                <option value="4">Fourth Year</option>
+              </select>
+            </div>
+
+            <div class="left_inputs">
+              <label for="student-name">Contact Number:</label>
+              <input type="text" id="contact-number" required>
+              <label for="student-name">Email Address:</label>
+              <input type="text" id="email-address" required> 
+              <label for="student-name">Social Media:</label>
+              <input type="text" id="Social-media" required> 
+              <label for="student-name">Address:</label>
+              <input type="text" id="Address" required>
+            </div>
+          </div>
+
+          <div class="right_form">
+            <div class="left_inputs">
+              <label for="student-name">Father's Name:</label>
+              <input type="text" id="Father-name" required>
+              <label for="student-name">Contact:</label>
+              <input type="text" id="Contact" required>
+              <label for="student-name">Address:</label>
+              <input type="text" id="Address" required>
+              <label for="student-name">Occupation:</label>
+              <input type="text" id="Last-name" required>
+            </div>
+
+            <div class="left_inputs">
+              <label for="student-name">Mother's Name:</label>
+              <input type="text" id="Mother-name" required>
+              <label for="student-name">Contact:</label>
+              <input type="text" id="Contact" required>
+              <label for="student-name">Address:</label>
+              <input type="text" id="Address" required>
+              <label for="student-name">Occupation:</label>
+              <input type="text" id="Last-name" required>
+            </div>
+
+            <div class="left_inputs">
+              <label for="student-name">Gurdian:</label>
+              <input type="text" id="Mother-name" required>
+              <label for="student-name">Contact:</label>
+              <input type="text" id="Contact" required>
+              <label for="student-name">Address:</label>
+              <input type="text" id="Address" required>
+              <label for="student-name">Relationship:</label>
+              <input type="text" id="Last-name" required>
+              <label for="student-name">Occupation:</label>
+              <input type="text" id="Last-name" required>
+            </div>
+          </div>
+
+          <div class="button-cont">
+            <button type="button" id="cancel-add-student">Cancel</button>
+            <button type="submit">Add Student</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+
+  <div class="alphabet-filter" id="alphabetFilter">
+  
+  </div>
+
+  <div class="student-grid" id="studentGrid">
+    <a href="students_interface_profile.html" 
+    class="student-card" 
+    data-year="1"
+    data-name="Jasper A. Fernandez">
+      <div class="avatar"></div>
+      <div class="name">Jasper A. Fernandez</div>
+    </a>
+    <div class="student-card" data-year="2">
+      <div class="avatar"></div>
+      <div class="name">Christian Jireh Briol</div>
+    </div>
+    <a href="students_interface_profile.html" 
+    class="student-card"
+    data-year="3"
+    data-name="Alrhinzo R. Monteagudo">
+      <div class="avatar"></div>
+      <div class="name">Alrhinzo R. Monteagudo</div>
+    </a>
+    <div class="student-card" data-year="3">
+      <div class="avatar"></div>
+      <div class="name">Mary ann Q. Arizobal</div>
+    </div>
+    <div class="student-card" data-year="2">
+      <div class="avatar"></div>
+      <div class="name">Christopher Cortes</div>
+    </div>
+    <div class="student-card" data-year="1">
+      <div class="avatar"></div>
+      <div class="name">jonClyde Esller</div>
+    </div>
+    <div class="student-card" data-year="1">
+      <div class="avatar"></div>
+      <div class="name">Vince A. Abayon</div>
+    </div>
+    <div class="student-card" data-year="1">
+      <div class="avatar"></div>
+      <div class="name">Edgar Balintong</div>
+    </div>
+    
+  </div>
+    </section>
+
+    <div id="delete-modal" class="modal ">
+      <div class="delete-modal">
+        <div class="warning">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <p>Are you sure you want to remove 
+            <span id="faculty-to-delete-name">
+          </span> from 
+          <span id="entity-context">Faculty</span>?</p>
+        </div>
+        <div class="button-cont">
+          <button id="cancel-delete">No</button>
+          <button id="confirm-delete">Yes</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./assets/scripts/student_btn.js"></script>
+  <script type="module" src="./assets/scripts/students_interface.js"></script>
+
+  <script>
+    function toggleMenu() {
+      const burger = document.querySelector('.burger');
+      const navMenu = document.querySelector('.nav-menu');
+
+      burger.classList.toggle('toggle');
+      navMenu.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
