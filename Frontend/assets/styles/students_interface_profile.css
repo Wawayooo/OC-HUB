@@ -1,0 +1,301 @@
+@import url(./general_style/variables.css);
+
+.student-profile {
+    width: 80%;
+    height: 100%;
+    padding: 20px;
+}
+
+.top{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.top h1 {
+    font-family: var(--Poppins-Bold);
+    font-size: 1.2rem;
+}
+
+.container {
+    width: 100%;
+    height: 95%;
+    display: flex;
+    gap: 20px;
+}
+
+.side_profile {
+    width: 350px;
+    min-width: 200px;
+    height: 100%;
+    background-color: var(--color-invisible-shadow);
+    border-radius: 10px 10px 0 0;
+}
+
+.side_profile img {
+    width: 100%;
+    height: 40%;
+    border-radius:  10px 10px 0 0;
+}
+
+.side_info {
+    padding: 10px;
+}
+
+.side_profile .side_info h3{
+    color: var(--color-primary);
+    font-family: var(--Poppins-Regular);
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.side_profile .side_info h2{
+    color: var(--color-primary);
+    font-family: var(--Poppins-Regular);
+    font-size: 1.0rem;
+    margin-bottom: 20px;
+}
+
+.side_btn {
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 50px;
+    margin-bottom: 5px;
+}
+
+.side_btn button{
+    padding: 10px 20px;
+    background-color: #800000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--Poppins-Regular);
+    font-size: 0.9rem;
+}
+
+
+.right_profile {
+    width: 90%;
+    height: 100%;
+    padding: 10px;
+}
+
+.right_profile h1 {
+    font-family: var(--Poppins-Bold);
+    font-size: 1.1rem;
+}
+
+.right_profile h3 {
+    font-family: var(--Poppins-Regular);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.right_profile .cont {
+    background-color: var(--color-invisible-shadow);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.right_profile .btn_container button {
+    padding: 10px 20px;
+    background-color: #800000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--Poppins-Regular);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.profile-content {
+  display: none;
+}
+
+.profile {
+  margin-bottom: 20px;
+}
+
+.about_header {
+  background-color: #800000;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid white;
+}
+
+.about_header h1 {
+  font-family: var(--Poppins-Regular);
+  font-size: 1.2rem;
+  color: white;
+  margin: 0;
+}
+
+.about_body {
+  background-color: #800000;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  border-radius: 0 0 10px 10px;
+}
+
+.cot {
+  min-width: 200px;
+}
+
+.cot h2 {
+  font-family: var(--Poppins-Regular);
+  font-size: 0.9rem;
+  color: white;
+  opacity: 0.8;
+  margin: 0 0 5px;
+}
+
+.cot h1 {
+  font-family: var(--Poppins-Regular);
+  font-size: 0.9rem;
+  color: white;
+  margin: 0;
+}
+
+#familyModal input[type="text"] {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 4px;
+}
+
+
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal.active {
+  display: flex;
+}
+
+
+.modal .delete-modal {
+  background-color: #800000;
+  padding: 1.5rem;
+  width: 350px;
+  max-width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.modal .warning {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.modal .warning p{
+  font-family: var(--Poppins-Bold);
+  color: white;
+  font-size: 1.2rem;
+}
+
+.modal .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.modal .form-group input {
+  padding: 10px 5px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.modal .form-group input:focus {
+  border-color: #800000;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(128, 0, 0, 0.2);
+}
+
+.modal .butto-cont {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px 20px 20px 0;
+  background-color: #800000;
+}
+
+.modal .butto-cont button {
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.2s ease;
+}
+
+.modal .butto-cont #saveFamilyBtn {
+  background-color: #28a745;
+  color: white;
+}
+
+.modal .butto-cont #saveFamilyBtn:hover {
+  background-color: #800000;
+}
+
+.modal .butto-cont #cancelAddBtn {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.modal .butto-cont #cancelAddBtn:hover {
+  background-color: #cacaca;
+}
+
+.modal .butto-cont #saveSubjectBtn {
+  background-color: #28a745;
+  color: white;
+}
+
+.modal .butto-cont #saveSubjectBtn:hover {
+  background-color: #800000;
+}
+
+.modal .butto-cont #cancelSubjectBtn {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.modal .butto-cont #cancelSubjectBtn:hover {
+  background-color: #cacaca;
+}
+ 
+ 
+.butto{
+  gap: 12px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--Poppins-Regular);
+  color: white;
+  background-color: #800000;
+}

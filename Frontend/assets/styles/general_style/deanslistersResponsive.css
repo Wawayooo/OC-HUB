@@ -1,0 +1,277 @@
+
+.BurgerHolder{
+  display: none;
+}
+
+.Nav-Holder{
+  position: absolute;
+  display: none;
+}
+
+.burger {
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  bottom: 0;
+  width: 5%;
+  height: 100%;
+}
+
+
+
+#FLine{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.line {
+    height: 4px;
+    width: 40px;
+  background-color: gold;
+  margin: 5px 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.burger.toggle .line:nth-child(1) {
+  transform: rotate(46deg) translate(16px, 5px);
+}
+.burger.toggle .line:nth-child(2) {
+  opacity: 0;
+}
+.burger.toggle .line:nth-child(3) {
+  transform: rotate(-46deg) translate(15px, -5px);
+}
+
+.headerText{
+  width: 94%;
+}
+
+.headerText h1{
+  color: white;
+  font-size: 13px;
+  left: 3%;
+  position: relative;
+}
+
+.headerText p{
+  color: white;
+  font-size: 9px;
+  position: relative;
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: rgba(128, 0, 0, 0.95);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in-out;
+  z-index: 1000;
+  padding-top: 80px;
+  max-height: 100%;
+  overflow: auto
+}
+
+.nav-menu.active {
+  transform: translateX(0);
+}
+
+.nav-menu .nav {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-menu .submenu {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.submenu-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#MobileHeadNav{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  main {
+    display: flex;
+    height: 100%;
+    overflow: auto;
+  }
+
+   aside{
+    display: none;
+  }
+  #MobileNav{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .Nav-Holder{
+    display: flex;
+    position: absolute;
+  }
+
+  .BurgerHolder{
+    width: 100vw;
+    height: 10%;
+    background-color: maroon;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 30px;
+  }
+
+  section .header .right-sec{
+    position: relative;
+  }
+
+  .table-cont {
+    padding: 1rem;
+    overflow-x: auto;
+    background-color: #fdf7f7;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  #deanslisters-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    min-width: 600px;
+  }
+
+  #deanslisters-table th,
+  #deanslisters-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border: 1px solid #ddd;
+    min-width: 100px;
+    word-break: break-word;
+  }
+
+  #deanslisters-table th {
+    background-color: #800000;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  #deanslisters-table td {
+    background-color: #fff;
+    color: #4a1c1c;
+    font-weight: 500;
+  }
+
+  #deanslisters-table td p {
+    margin: 0;
+  }
+  .table {
+      width: 100%;
+      overflow: auto;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  #deanslisters-table td{
+    font-size: 8px;
+  } 
+  #deanslisters-table th{
+    font-size: 12px;
+  } 
+}
+
+@media screen and (max-width: 800px) {
+  section .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  section .left .img-cont {
+    height: 20%;
+    width: 20%;
+  }
+  section .header p{
+    font-size: 27px;
+  }
+  section .header h1{
+    font-size: 13px;
+  }
+  .table {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      height: 100%;
+      overflow: auto;
+  }
+  main {
+    display: flex;
+    height: 100%;
+  }
+   #deanslisters-table th{
+    font-size: 8px;
+  } 
+}
+
+@media screen and (max-width: 960px) {
+  #deanslisters-table td {
+      font-size: 8px;
+  }
+  #deanslisters-table th {
+      font-size: 12px;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  section .header .right-sec{
+    left: 15px;
+  }
+
+   #deanslisters-table th {
+      font-size: 6px;
+  }
+
+  .burger{
+    right: 12px;
+  }
+
+  .modal .delete-modal {
+    background: var(--color-gradient-jet);
+    padding: 1.5rem;
+    width: 95%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+}

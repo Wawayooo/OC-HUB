@@ -1,0 +1,60 @@
+@import url(./general_style/variables.css);
+
+.table{
+  overflow: auto;
+}
+
+.table .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section {
+  gap: 1rem;
+}
+
+select {
+  padding: 0.5rem;
+}
+
+.table-cont {
+  padding: 1rem;
+  overflow-x: auto;
+  background-color: #fdf7f7;
+  font-family: 'Poppins', sans-serif;
+}
+
+#deanslisters-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  min-width: 600px;
+}
+
+#deanslisters-table th,
+#deanslisters-table td {
+  padding: 0.8rem;
+  text-align: left;
+  border: 1px solid #ddd;
+  min-width: 100px;
+  word-break: break-word;
+}
+
+#deanslisters-table th {
+  background-color: #800000;
+  color: #fff;
+  font-weight: 600;
+}
+
+#deanslisters-table td {
+  background-color: #fff;
+  color: #4a1c1c;
+  font-weight: 500;
+}
+
+#deanslisters-table td p {
+  margin: 0;
+}
+

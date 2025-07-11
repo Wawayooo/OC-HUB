@@ -1,0 +1,391 @@
+@import url(./general_style/variables.css);
+
+.org-main-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.org-main-cont .top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-nav .clubs-main-cont {
+  max-width: 73%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.clubs-scroll-wrapper {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  width: 100%;
+    scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.clubs-scroll-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.clubs-cont {
+  display: inline-flex;
+  gap: 10px;
+  padding: 10px 40px; /* create space for arrows */
+}
+
+.clubs-cont button {
+  white-space: nowrap;
+}
+
+.prev-club,
+.next-club {
+  position: absolute;
+  border-radius: 50% !important;
+  padding: 5px 10px !important;
+  top: 10px;
+  z-index: 10;
+  background: white;
+  cursor: pointer;
+}
+
+.prev-club:hover,
+.next-club:hover {
+  background: var(--color-light-primary);
+  color: var(--color-white);
+}
+
+.prev-club {
+  left: 5px;
+}
+
+.next-club {
+  right: 5px;
+}
+
+
+.top-nav .clubs-cont {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.1rem;
+}
+
+.top-nav button {
+  padding: 0.8rem 1rem;
+  background: var(--color-white);
+  border: none;
+  cursor: pointer;
+  font-family: var(--Poppins-Bold);
+  border-radius: 5px;
+  box-shadow: 0 0 0.2rem var(--color-invisible-shadow);
+  flex-shrink: 0;
+}
+
+.top-nav button.active {
+  color: var(--color-light);
+  background: var(--color-primary);
+}
+
+.top-nav select {
+  padding: 0.8rem 0.5rem;
+}
+
+.add-club-cont button {
+  background: var(--color-black);
+  color: var(--color-light);
+  font-family: var(--Poppins-Regular);
+  box-shadow: unset;
+  padding: 0.8rem 0.8rem;
+}
+
+.officers-main-cont {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.org-cont {
+  position: relative;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+.org-cont.active {
+  display: flex;
+}
+
+.members-org-cont {
+  display: none;
+}
+
+.members-org-cont.active {
+  display: flex;
+  flex-direction: column;
+}
+
+select {
+  padding: 0.5rem;
+}
+
+.delete-selected-btn {
+  color: var(--color-primary);
+}
+
+.tree-row {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  position: relative;
+}
+
+.tree-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 50%;
+  position: relative;  
+}
+
+
+.box {
+  display: flex;
+  background: var(--color-primary);
+  gap: 1rem;
+  border-radius: 60px;
+  width: 90%;
+  position: relative;
+  align-items: center;
+  padding: 1rem;
+  z-index: 2;
+}
+
+.box .info-cont {
+  color: white;
+}
+
+.info-cont h4 {
+  font-family: var(--Poppins-Bold);
+  font-size: 1rem;
+  max-width: 200px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  text-overflow: ellipsis;
+}
+
+.info-cont p {
+  font-family: var(--Poppins-Regular);
+  font-size: 0.8rem;
+}
+
+.info-cont span {
+  font-family: var(--Poppins-Regular);
+  color: var(--color-bg-white);
+  font-size: 0.8rem;
+}
+
+.first-officer {
+  width: 40%;
+}
+
+.box .img-cont {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 3px solid var(--color-bg-white);
+}
+
+
+.box strong {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.first-officer::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background: var(--color-white);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.tree-row::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: var(--color-white);
+}
+
+.tree-column .box:first-child::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background: var(--color-white);
+  transform: translateX(-50%);
+}
+
+.tree-column .box::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: var(--color-white);
+  transform: translateX(-50%);
+}
+
+.table .header button {
+  background: var(--color-black);
+  color: var(--color-light);
+  font-family: var(--Poppins-Regular);
+  padding: 0.4rem 0.8rem;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.table .header button i {
+  font-size: 0.8rem;
+}
+
+.table .header button:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+  border: 1px solid var(--color-black);
+}
+
+.add-cont {
+  background: var(--color-primary);
+  padding: 1rem;
+  box-shadow: 0 0 0.2rem var(--color-primary);
+  color: var(--color-bg-white);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.8rem;
+  border-radius: 5px;
+}
+
+.add-cont .header {
+  align-self: flex-end;
+}
+
+.table .header i {
+  font-size: 1.5rem;
+}
+
+.add-cont .inputs-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.add-cont .inputs-cont .inputs {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--Poppins-Regular);
+}
+
+.add-cont label {
+  font-size: 0.7rem;
+  font-family: var(--Poppins-Bold);
+}
+
+.add-cont input,
+.add-cont select {
+  padding: 0.5rem;
+}
+
+.add-cont button {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--color-white);
+  border: 1px solid transparent;
+  color: var(--color-primary);
+  font-family: var(--Poppins-Regular);
+  cursor: pointer;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+
+.add-cont button:hover {
+  box-shadow: 0 0 0.2rem var(--color-white);
+  background: transparent;
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
+}
+
+.manage-clubs-cont,
+.manage-officers-cont {
+  background: var(--color-primary);
+  padding: 1rem;
+  box-shadow: 0 0 0.2rem var(--color-primary);
+  color: var(--color-bg-white);
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-radius: 5px;
+  height: 70%;
+}
+
+.manage-clubs-cont .table-cont {
+  max-height: 80%;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+#delete-selected-clubs-btn {
+  color: var(--color-bg-white);
+}
+
+.manage-officers-cont .delete-selected-btn {
+  color: var(--color-bg-white);
+}
+
+.manage-officers-cont .table-cont {
+  max-height: 80%;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.manage-officers-cont .table-cont::-webkit-scrollbar-thumb,
+.manage-clubs-cont .table-cont::-webkit-scrollbar-thumb  {
+  background: var(--color-white);
+}
+
+.manage-officers-cont table td:first-child p,
+.manage-clubs-cont table td:first-child p {
+  max-width: 250px !important;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; 
+}

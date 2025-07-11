@@ -1,0 +1,364 @@
+.burger {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  width: 40px;
+  height: 40px;
+}
+
+.line {
+  height: 4px;
+  width: 30px;
+  background-color: gold;
+  margin: 5px 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.burger.toggle .line:nth-child(1) {
+  transform: rotate(46deg) translate(5px, 5px);
+}
+.burger.toggle .line:nth-child(2) {
+  opacity: 0;
+}
+.burger.toggle .line:nth-child(3) {
+  transform: rotate(-46deg) translate(13px, -15px);
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: rgba(128, 0, 0, 0.95);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in-out;
+  z-index: 1000;
+  padding-top: 80px;
+  max-height: 100%;
+  overflow: auto
+}
+
+.nav-menu.active {
+  transform: translateX(0);
+}
+
+.nav-menu .nav {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-menu .submenu {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.submenu-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#MobileHeadNav{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 1210px) {
+ .middle .right .top .instructors-cont .instructor .info h3 {
+    font-size: 10px;
+ }
+
+  .middle .right .top .instructors-cont .instructor .info p {
+    font-size: 12px;
+ }
+  
+}
+
+@media screen and (max-width: 1035px) {
+ .middle .right .top .instructors-cont .instructor .info h3 {
+    font-size: 12px;
+ }
+ .middle .right .top .instructors-cont .instructor .info p {
+    font-size: 9px;
+ }
+}
+
+@media screen and (max-width: 1200px) {
+  section {
+    background: var(--color-bg-white);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+    padding: 1.5rem;
+    position: absolute;
+    width: 100%;
+    right: 0px;
+    overflow: auto;
+    height: 100%;
+    top: 5%;
+  }
+  section .header h1{
+    font-size: 15px;
+  }
+  .dashboard{
+    flex-wrap: wrap;
+  }
+  .dashboard .cards{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .dashboard .cards a{
+    font-size: 5px;
+  }
+  .dashboard .cards .card h1{
+    font-size: 12px;
+  }
+  .dashboard .cards .card h2{
+    font-size: 6px;
+  }
+  .img-cont{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  .dashboard .middle {
+    display: block;
+    width: 100%;
+    overflow: auto;
+  }
+  .dashboard .middle .right{
+    margin-top: 17px;
+   box-shadow: inset 2px -1px 2px black, inset -1px -3px 5px black;
+  }
+  .officers-cont{
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .dashboard .middle .left .top-cards .officers-cont .officer-card {
+    width: 100%;
+    box-shadow: inset 2px -1px 2px black, inset -1px -3px 5px black;
+  }
+
+  .dashboard .middle .left .top-cards .officers-cont .officer-card .img-cont {
+    height: 50px;
+    width: 55px;
+    border-radius: 10%;
+  }
+
+  .course-cont{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .dashboard .middle .left .bot-cards .course-card p{
+    font-size: 7px;
+  }
+
+  .dashboard .middle .left .bot-cards .course-card p{
+    font-size: 8px;
+  }
+  aside {
+    display: flex;
+    background: var(--color-primary);
+    color: var(--color-white);
+    position: sticky;
+    top: 0;
+    flex-wrap: wrap;
+    z-index: 1;
+    width: 100%;
+    height: 10%;
+  }
+
+   aside .header h1{
+    font-size: 15px;
+    position: relative;
+    left: 27px;
+  }
+  aside .header p{
+    font-size: 12px;
+  }
+  #HeadNav{
+    display: none;
+  }
+  #MobileHeadNav{
+    display: flex;
+    position: relative;
+    right: -859px;
+    width: 20%;
+    bottom: 62px;
+  }
+  .burger{
+    left: 210px;
+  }
+}
+
+@media screen and (max-width: 1100px) and (max-height: 540px){
+  .burger{
+    left: 50px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .burger{
+    left: -120px;
+    top: 14px;
+  }
+  aside .header h1{
+    left: 74px;
+    top: -9px;
+  }
+   aside .header p{
+    position: relative;
+    bottom: 10px;
+    left: 40px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #Head{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    background-color: transparent;
+  }
+  aside{
+    position: fixed;
+    height: 10%;
+  }
+  #MobileHeadNav{
+    position: relative;
+    left: 540px;
+    top: -46px;
+  }
+  .burger{
+    top: 15px;
+  }
+  aside .header h1{
+    position: relative;
+    left: 77px;
+  }
+   aside .header p{
+    position: relative;
+    top: 7px;
+    left: -50px;
+  }
+}
+
+@media screen and (max-width: 690px){
+  aside{
+    position: fixed;
+    height: 14%;
+  }
+  #Head{
+    background-color: transparent;
+    width: 100%;
+  }
+  #MobileHeadNav{
+    position: relative;
+    left: 300px;
+    top: -26px;
+  }
+  aside .header h1{
+    position: relative;
+    left: -60px;
+  }
+   aside .header p{
+    position: relative;
+    top: 7px;
+    left: -179px;
+  }
+}
+
+@media screen and (max-width: 590px){
+  aside{
+    height: 10%;
+  }
+  #Head{
+    background-color: transparent;
+    width: 100%;
+  }
+  #MobileHeadNav{
+    top: -30px;
+  }
+  aside .header h1{
+    font-size: 6px;
+    left: -110px;
+    top: -2px;
+  }
+   aside .header p{
+    font-size: 5px;
+    left: -160px;
+  }
+}
+
+@media screen and (max-width: 490px){
+  aside{
+    height: 8%;
+  }
+  #Head{
+    background-color: transparent;
+    width: 100%;
+  }
+  #MobileHeadNav{ 
+    top: -27.5px;
+    left: 240px;
+  }
+  aside .header h1{
+    font-size: 9px;
+    left: -16px;
+    top: -2px;
+  }
+   aside .header p{
+    font-size: 7px;
+    left: -92px;
+    top: 10px;
+  }
+  .line{
+    height: 20%;
+  }
+  #First-Header-Section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    top: 8px;
+    position: relative;
+  }
+  .burger{
+    transform: translate(-37px, 3px);
+  }
+}
+
+@media screen and (width: 325px) {
+  #Head{
+    background-color: black;
+  }
+}

@@ -1,0 +1,152 @@
+
+.BurgerHolder{
+  display: none;
+}
+
+.Nav-Holder{
+  position: absolute;
+  display: none;
+}
+
+.burger {
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  bottom: 0;
+  width: 5%;
+  height: 100%;
+}
+
+
+
+#FLine{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.line {
+    height: 4px;
+    width: 40px;
+  background-color: gold;
+  margin: 5px 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.burger.toggle .line:nth-child(1) {
+  transform: rotate(46deg) translate(16px, 5px);
+}
+.burger.toggle .line:nth-child(2) {
+  opacity: 0;
+}
+.burger.toggle .line:nth-child(3) {
+  transform: rotate(-46deg) translate(15px, -5px);
+}
+
+.headerText{
+  width: 94%;
+}
+
+.headerText h1{
+  color: white;
+  font-size: 13px;
+  left: 3%;
+  position: relative;
+}
+
+.headerText p{
+  color: white;
+  font-size: 9px;
+  position: relative;
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: rgba(128, 0, 0, 0.95);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in-out;
+  z-index: 1000;
+  padding-top: 80px;
+  max-height: 100%;
+  overflow: auto
+}
+
+.nav-menu.active {
+  transform: translateX(0);
+}
+
+.nav-menu .nav {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-menu .submenu {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.submenu-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#MobileHeadNav{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  main {
+    display: flex;
+    height: 100%;
+    overflow: auto;
+  }
+
+   aside{
+    display: none;
+  }
+  #MobileNav{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+   .Nav-Holder{
+    display: flex;
+    position: absolute;
+  }
+
+  .BurgerHolder{
+    width: 100vw;
+    height: 10%;
+    background-color: maroon;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 30px;
+  }
+
+}

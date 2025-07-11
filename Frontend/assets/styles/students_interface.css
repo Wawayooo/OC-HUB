@@ -1,0 +1,256 @@
+@import url(./general_style/variables.css);
+
+.year-dashboard{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2rem;
+}
+
+.year-dashboard .year-cards{
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+
+}
+
+.year-dashboard .year-cards a {
+  flex: 1;
+  border-radius: 25px;
+  border: 3px solid transparent;
+  cursor: default;
+  box-shadow: 0 0 1rem var(--color-invisible-shadow);
+  padding: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+
+.year-dashboard .year-cards .year-card{
+  display: flex;
+  align-items: center;
+}
+
+.year-dashboard .year-cards a:hover {
+  border: 3px solid var(--color-primary);
+}
+
+.year-dashboard .year-cards .year-card h2 {
+  font-family: var(--Poppins-Bold);
+  font-size: 1rem;
+  color: var(--color-white-shadow);
+}
+
+.year-dashboard .year-cards .year-card h1 {
+  font-family: var(--Poppins-Bold);
+  font-size: 2.5rem;
+  color: #800000;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar .total h2{
+  font-family: var(--Poppins-Bold);
+  font-size: 1.0rem;
+  color: #800000;
+}
+
+.search-section {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 400px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+   padding: 8px 15px;
+   border: none;
+   border-radius: 5px;
+   background: var(--color-grass);
+   color: white;
+   cursor: pointer;
+}
+
+.add-student-modal {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 5px;
+  width: 900px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.add-student-modal h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.add-student-modal label {
+  display: block;
+  font-weight: bold;
+}
+
+.add-student-modal input,
+.add-student-modal select {
+  width: 200px;
+  padding: 8px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.add-student-modal input[type="file"] {
+  background: #f9f9f9;
+}
+
+.left_form {
+  display: flex;
+  flex-direction: row;
+  padding: 12px;
+  gap: 16px;
+  background-color: #800000;
+  border-radius: 5px 5px 0 0;
+  justify-content: space-evenly;
+}
+
+.image-preview-container {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #f0f0f0;
+  flex-shrink: 0;
+}
+
+.image-preview-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.left_inputs {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.left_inputs label {
+  color: white;
+  margin-top: 0;
+  font-weight: bold;
+  font-family: var(--Poppins-Regular);
+  font-size: 0.7rem;
+}
+
+.left_inputs input {
+  width: 250px;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.right_form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 12px;
+  gap: 16px;
+  background-color: #800000;
+
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.button-cont {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 40px 20px 20px 0;
+  background-color: #800000;
+  border-radius: 0 0 5px 5px;
+}
+
+.button-cont button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#cancel-add-student {
+  background-color: #ccc;
+}
+
+#add-student-form button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+}
+
+
+.alphabet-filter button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.alphabet-filter button:hover {
+    background: #864444;
+    color: white;
+    cursor: pointer;
+}
+
+.student-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 15px;
+}
+
+.student-card {
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #d3d3d3;
+      margin: 0 auto 10px;
+}
+
+.student-grid .student-card .name{
+  font-family: var(--Poppins-Bold);
+  font-size: 0.8rem;
+  color: #800000;
+}
