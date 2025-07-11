@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Information System</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="./assets/styles/general_style/general.css">
+  <link rel="stylesheet" href="./assets/styles/general_style/homepage-nav-headers.css">
+  <link rel="stylesheet" href="./assets/styles/general_style/modals.css">
+  <link rel="stylesheet" href="./assets/styles/reports_interface.css">
+   <link rel="stylesheet" href="./assets/styles/general_style/reportsResponsive.css">
+</head>
+<body>
+  <div class="BurgerHolder">
+    <div class="headerText">
+      <h1>MyOsmeÑa</h1>
+      <p>Student Information System</p>
+    </div>
+
+    <div class="burger" onclick="toggleMenu()">
+      <span class="line" id="FLine"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </div>
+  </div>
+  <main>
+    <div class="Nav-Holder">
+      <nav class="nav-menu" id="MobileNav">
+        <nav>
+          <ul class="nav">
+            <li>
+              <a href="#" class="nav-link active"><i class="fa-solid fa-grip"></i> Dashboard</a>
+            </li>
+            <li class="student-navigation">
+              <a class="student-nav" href="#" >
+                <div class="sides">
+                  <i class="fa-solid fa-user-graduate"></i> Students
+                </div>
+                <i class="arrow-down fa-solid fa-angle-down"></i>
+              </a>
+              <ul class="submenu">
+                <li>
+                  <a class="submenu-link" href="students_interface.html">
+                    List of Students <i class="fa-solid fa-chevron-right"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="submenu-link" href="deanslisters_interface.html">
+                    Dean's Listers
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="submenu-link" href="sections_interface.html">
+                    Sections <i class="fa-solid fa-chevron-right"></i>
+                  </a>
+                  </li>
+                <li>
+                  <a class="submenu-link" href="subjects_interface.html">
+                    Subjects
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="org_clubs_interface.html" data-page="organizations"><i class="fa-solid fa-users"></i> Organization & Clubs</a>
+            </li>
+            <li>
+              <a href="documents_interface.html" data-page="documents"><i class="fa-regular fa-file-word"></i> Document Tools</a>
+            </li>
+            <li>
+              <a href="reports_interface.html" data-page="reports"><i class="fa-solid fa-chart-line"></i> Reports</a>
+            </li>
+            <li>
+              <a href="https://osmena-colleges.netlify.app" data-page="about">
+                <i class="fa-solid fa-circle-info"></i> About Us
+              </a>
+            </li>
+            <li>
+              <a href="./home_hub.html" data-page="reports">
+                <i class="fa-solid fa-arrow-left"></i> Go Back
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </nav>
+    </div>
+    <aside>
+      <div class="header">
+        <h1>MyOsmeÑa</h1>
+        <p>Student Information System</p>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="dashboard_interface.html" data-page="dashboard"><i class="fa-solid fa-grip"></i> Dashboard</a>
+          </li>
+          <li class="">
+            <a class="student-nav" href="#" >
+              <div class="sides">
+                <i class="fa-solid fa-user-graduate"></i> Students
+              </div>
+              <i class="arrow-down fa-solid fa-angle-down"></i>
+            </a>
+            <ul class="submenu">
+              <li>
+                <a class="submenu-link" href="students_interface.html">
+                  List of Students <i class="fa-solid fa-chevron-right"></i>
+                </a>
+              </li>
+              <li>
+                <a class="submenu-link" href="deanslisters_interface.html">
+                  Dean's Listers
+                  <i class="fa-solid fa-chevron-right"></i>
+                </a>
+              </li>
+              <li>
+                <a class="submenu-link" href="sections_interface.html">
+                  Sections <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                </li>
+              <li>
+                <a class="submenu-link" href="subjects_interface.html">
+                  Subjects
+                  <i class="fa-solid fa-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="org_clubs_interface.html" data-page="organizations"><i class="fa-solid fa-users"></i> Organization & Clubs</a>
+          </li>
+          <li>
+            <a href="documents_interface.html" data-page="documents"><i class="fa-regular fa-file-word"></i> Document Tools</a>
+          </li>
+          <li>
+            <a class="nav-link active" href="#" data-page="reports"><i class="fa-solid fa-chart-line"></i> Reports</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  
+    <section>
+      <div class="header">
+        <div class="left">
+            <div class="img-cont">
+              <img src="./assets/media/304880020_484105543722963_6792900679710469272_n.png" alt="">
+            </div>
+            <div class="headers">
+              <h1>College of Computer Science</h1>
+              <p>DEPARTMENT</p>
+            </div>
+        </div>
+        <div class="right-sec">
+          <a href="home_hub.html">
+            <i class="home fa-solid fa-house"></i>
+          </a>
+          
+          <button>
+            <div class="left">
+              <div class="img-cont">
+                <img src="./assets/media/blank-profile-picture-973460.svg" alt="dp">
+              </div>
+            </div>
+            <div class="right">
+              <h4>Christian Jireh Briol</h4>
+              <p>Pres-CCSO</p>
+            </div>
+            <i class="fa-solid fa-caret-down"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="reports " id="reports">
+        <i>This is reports page</i>
+      </div>
+    </section>
+
+    <div id="delete-modal" class="modal ">
+      <div class="delete-modal">
+        <div class="warning">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <p>Are you sure you want to remove 
+            <span id="faculty-to-delete-name">
+          </span> from 
+          <span id="entity-context">Faculty</span>?</p>
+        </div>
+        <div class="button-cont">
+          <button id="cancel-delete">No</button>
+          <button id="confirm-delete">Yes</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./assets/scripts/student_btn.js"></script>
+  <script>
+    function toggleMenu() {
+      const burger = document.querySelector('.burger');
+      const navMenu = document.querySelector('.nav-menu');
+
+      burger.classList.toggle('toggle');
+      navMenu.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
