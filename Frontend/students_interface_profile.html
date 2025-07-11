@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Information System</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="./assets/styles/general_style/general.css">
+  <link rel="stylesheet" href="./assets/styles/general_style/homepage-nav-headers.css">
+  <link rel="stylesheet" href="./assets/styles/general_style/modals.css">
+  <link rel="stylesheet" href="./assets/styles/students_interface.css">
+  <link rel="stylesheet" href="./assets/styles/dashboard_interface.css">
+  <link rel="stylesheet" href="./assets/styles/students_interface_profile.css">
+</head>
+<body>
+  <main>
+    <aside>
+      <div class="header">
+        <h1>MyOsmeÑa</h1>
+        <p>Student Information System</p>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="dashboard_interface.html" data-page="dashboard"><i class="fa-solid fa-grip"></i> Dashboard</a>
+          </li>
+          <li class="active">
+            <a class="student-nav nav-link " href="#" >
+              <div class="sides">
+                <i class="fa-solid fa-user-graduate"></i> Students
+              </div>
+              <i class="arrow-down fa-solid fa-angle-down"></i>
+            </a>
+            <ul class="submenu active">
+              <li>
+                <a class="submenu-link active" href="#">
+                  List of Students <i class="fa-solid fa-chevron-right"></i>
+                </a>
+              </li>
+              <li>
+                <a class="submenu-link" href="deanslisters_interface.html">
+                  Dean's Listers <i class="fa-solid fa-chevron-right"></i>
+                </a>
+              </li>
+              <li>
+                <a class="submenu-link" href="sections_interface.html">
+                  Sections <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                </li>
+              <li>
+                <a class="submenu-link" href="subjects_interface.html">
+                  Subjects
+                  <i class="fa-solid fa-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="org_clubs_interface.html" data-page="organizations"><i class="fa-solid fa-users"></i> Organization & Clubs</a>
+          </li>
+          <li>
+            <a href="documents_interface.html" data-page="documents"><i class="fa-regular fa-file-word"></i> Document Tools</a>
+          </li>
+          <li>
+            <a href="reports_interface.html" data-page="reports"><i class="fa-solid fa-chart-line"></i> Reports</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div class="student-profile">
+      <div class="top">
+        <a href="students_interface.html">
+          <i class="fa-solid fa-arrow-left fa-lg" style="color: #800000;"></i>
+        </a>
+        <h1>Student Profile</h1>
+      </div>
+      <div class="container">
+        <div class="side_profile">
+          <img src="assets/media/bdce5c78-8d3a-44d0-8036-0802e6ee59a5.jpg" alt="">
+          <div class="side_btn">
+            <button><i class="fa-solid fa-pen-to-square fa-sm" style="color: #ffffff;"></i> Edit</button>
+            <button><i class="fa-solid fa-trash fa-sm" style="color: #ffffff;"></i> Delete</button>
+          </div>
+          <div class="side_info">
+            <h2>Baisc Information :</h2>
+            <h3> <i class="fa-solid fa-calendar-days fa-sm" style="color: #800000;"></i> Date of Birth: 01/01/2000</h3>
+            <h3><i class="fa-solid fa-venus-mars fa-sm" style="color: #800000;"></i> Gender: Male</h3>
+            <h3><i class="fa-solid fa-layer-group fa-sm" style="color: #800000;"></i> Year Level: 1st Year</h3>
+          </div>
+        </div>
+        <div class="right_profile">
+            <h1></h1>
+            <h3>ID : 2001913</h3>
+          <div class="cont">
+            <div class="btn_container">
+              <button id="show-profile">Profile</button>
+              <button id="show-parents">Parents/Guardians</button>
+              <button id="show-subjects"> Subjects</button>
+            </div>
+
+            <!-- Profile -->
+           <div class="profile-content" style="display: none;">
+              <div class="profile">
+                <div class="about_header">
+                  <h1>About Me</h1>
+                </div>
+
+                <div class="about_body">
+                  <div class="cot">
+                    <h2>Full Name</h2>
+                    <h1>Jasper Angeles Fernandez</h1>
+                  </div>
+                  <div class="cot">
+                    <h2>Student ID</h2>
+                    <h1>1234567</h1>
+                  </div>
+                  <div class="cot">
+                    <h2>Course</h2>
+                    <h1>BS Information Technology</h1>
+                  </div>
+                  <div class="cot">
+                    <h2>Year Level</h2>
+                    <h1>3rd Year</h1>
+                  </div>
+
+                  <div class="cot">
+                    <h2>Birthday</h2>
+                    <h1>October 14, 2001</h1>
+                  </div>
+                  <div class="cot">
+                    <h2>Gender</h2>
+                    <h1>Male</h1>
+                  </div>
+                  <div class="cot">
+                    <h2>Nationality</h2>
+                    <h1>Filipino</h1>
+                  </div>
+                  <div class="cot">
+                    <h2>Religion</h2>
+                    <h1>Roman Catholic</h1>
+                  </div>
+
+                  <div class="cot">
+                    <h2>Address</h2>
+                    <h1>Masbate City, Philippines</h1>
+                  </div>
+                  <div class="cot">
+                    <h2>Contact No.</h2>
+                    <h1>09123456789</h1>
+                  </div>
+                  <div class="cot">
+                    <h2>Email</h2>
+                    <h1>jasper.fernandez@gmail.com</h1>
+                  </div>
+                  <div class="cot">
+                    <h2>Facebook</h2>
+                    <h1>Jasper Fernandez</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Family Table -->
+            <div class="table-cont">
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width: 200px;">
+                      <input type="checkbox" id="select-all-courses">
+                      Family Memebers
+                    </th>
+                    <th style="width: 100px;">Relation</th>
+                    <th style="width: 200px;">Contact Number</th>
+                    <th>Status</th>
+                    <th>Occupation</th>
+                    <th class="table-actions-header">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input type="checkbox">
+                      jessel C. Fernandez
+                    </td>
+                    <td >
+                      <p class="course-desc">
+                        wife
+                    </td>
+                    <td>
+                      <p class="course-desc">
+                        0987654321
+                      </p>
+                    </td>
+                    <td>active</td>
+                    <td>Hose wife</td>
+                    <td>
+                      <div class="table-actions">
+                        <i class="edit-courses fa-solid fa-pen-to-square"></i>
+                        <i class="delete-btn fa-solid fa-trash"></i>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input type="checkbox">
+                      mama
+                    </td>
+                    <td >
+                      <p class="course-desc">
+                        mother
+                    <td>
+                      <p class="course-desc">
+                        0987654321
+                      </p>
+                    </td>
+                    <td>active</td>
+                    <td>Goverment</td></td>
+                    <td>
+                      <div class="table-actions">
+                        <i class="edit-courses fa-solid fa-pen-to-square"></i>
+                        <i class="delete-btn fa-solid fa-trash"></i>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input type="checkbox">
+                      papa
+                    </td>
+                    <td >
+                      <p class="course-desc">
+                        Father
+                    </td>
+                    <td>
+                      <p class="course-desc">
+                        0987654321
+                      </p>
+                    </td>
+                    <td>active</td>
+                    <td>Pastor</td>
+                    <td>
+                      <div class="table-actions">
+                        <i class="edit-courses fa-solid fa-pen-to-square"></i>
+                        <i class="delete-btn fa-solid fa-trash"></i>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- Add Family Modal -->
+              <div class="modal" id="addFamilyModal">
+                <div class="delete-modal">
+                  <div class="warning">
+                    <p><span>Add Family Member</span></p>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="fmName" placeholder="Full Name" required/>
+                    <input type="text" id="fmRelation" placeholder="Relation" required/>
+                    <input type="text" id="fmContact" placeholder="Contact Number" required/>
+                    <input type="text" id="fmStatus" placeholder="Status" />
+                    <input type="text" id="fmOccupation" placeholder="Occupation" />
+                  </div>
+                  <div class="butto-cont">
+                    <button id="saveFamilyBtn">Add</button>
+                    <button id="cancelAddBtn">Cancel</button>
+                  </div>
+                </div>
+              </div>
+
+              <button class="butto" id="addFamilyBtn" style="margin: 1rem 0;">Add Family Member</button>
+          </div>
+          
+          <!-- Suibject Table -->
+          <div class="subjects" style="display: none;">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 120px;">
+                    Course Code
+                  </th>
+                  <th style="width: 200px;">Course Description</th>
+                  <th style="width: 200px;">Assigned Instructors</th>
+                  <th>Year Level</th>
+                  <th>Room</th>
+                  <th class="table-actions-header">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                    APS
+                  </td>
+                  <td >
+                    <p class="course-desc">
+                      Advanced Probability and 
+                      Statistics and
+                    </p>
+                  </td>
+                  <td>
+                    <p class="course-desc">
+                      Justine S. Aban
+                    </p>
+                  </td>
+                  <td>3</td>
+                  <td>Room 1</td>
+                  <td>
+                    <div class="table-actions">
+                      <i class="edit-courses fa-solid fa-pen-to-square"></i>
+                      <i class="delete-btn fa-solid fa-trash"></i>
+                    </div>
+              <tbody>
+              </tbody>
+            </table>
+            <div class="modal" id="addSubjectModal">
+            <div class="delete-modal">
+              <div class="warning">
+                <p><span>Add Subject</span></p>
+              </div>
+              <div class="form-group">
+                <input type="text" id="subjectCode" placeholder="Course Code" required />
+                <input type="text" id="subjectDesc" placeholder="Course Description" required />
+                <input type="text" id="subjectInstructor" placeholder="Assigned Instructor" required />
+                <input type="number" id="subjectYear" placeholder="Year Level" required />
+                <input type="text" id="subjectRoom" placeholder="Room" required />
+              </div>
+              <div class="butto-cont">
+                <button id="saveSubjectBtn">Add</button>
+                <button id="cancelSubjectBtn">Cancel</button>
+              </div>
+            </div>
+          </div>
+          
+          <button class="butto" id="addSubjectBtn" style="margin: 1rem 0;">Add Subject</button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <div id="delete-modal" class="modal ">
+      <div class="delete-modal">
+        <div class="warning">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <p>Are you sure you want to remove 
+            <span id="faculty-to-delete-name">
+          </span> from 
+          <span id="entity-context">Faculty</span>?</p>
+        </div>
+        <div class="button-cont">
+          <button id="cancel-delete">No</button>
+          <button id="confirm-delete">Yes</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="./assets/scripts/students_interface.js"></script>
+  <script type="module" src="./assets/scripts/students_interface_profile.js"></script>
+  <script type="module" src="./assets/scripts/delete_modal.js"></script>
+</body>
+</html>
