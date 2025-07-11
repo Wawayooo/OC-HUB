@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Information System</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="./assets/styles/general_style/general.css">
+  <link rel="stylesheet" href="./assets/styles/general_style/homepage-nav-headers.css">
+  <link rel="stylesheet" href="./assets/styles/general_style/modals.css">
+  <style>
+    @import url(./general_style/variables.css);
+
+.officers-main-cont {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+#tree-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+.tree-row {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  position: relative;
+}
+
+.tree-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 50%;
+  position: relative;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 10px;
+  width: 70%;
+  height: 250px;
+  position: relative;
+}
+
+.box .info-cont {
+  background: var(--color-primary);
+  padding: 1rem;
+  border-radius: 10px 10px 0 0;
+  color: white;
+}
+
+.info-cont h4 {
+  font-family: var(--Poppins-Bold);
+  font-size: 1rem;
+}
+
+.info-cont p {
+  font-family: var(--Poppins-Regular);
+  font-size: 0.8rem;
+}
+
+.info-cont span {
+  font-family: var(--Poppins-Regular);
+  color: var(--color-bg-white);
+  font-size: 0.8rem;
+}
+
+.first-officer {
+  width: 30%;
+}
+
+.box .img-cont {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+.box strong {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.box .year {
+  font-size: 13px;
+  color: #555;
+}
+
+/* Line from top officer to the tree-row */
+.first-officer::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background: #888;
+  transform: translateX(-50%);
+}
+
+/* Horizontal line between VP and Secretary */
+.tree-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: #888;
+}
+
+/* Vertical connector for each box in columns */
+.tree-column .box:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: #888;
+  transform: translateX(-50%);
+}
+  </style>
+</head>
+<body>
+  <main>
+    <aside>
+      <div class="header">
+        <h1>MyOsmeÑa</h1>
+        <p>Student Information System</p>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="dashboard_interface.html" data-page="dashboard"><i class="fa-solid fa-grip"></i> Dashboard</a>
+          </li>
+          <li class="">
+            <a class="student-nav" href="#" >
+              <div class="sides">
+                <i class="fa-solid fa-user-graduate"></i> Students
+              </div>
+              <i class="arrow-down fa-solid fa-angle-down"></i>
+            </a>
+            <ul class="submenu">
+              <li>
+                <a class="submenu-link" href="students_interface.html">
+                  List of Students <i class="fa-solid fa-chevron-right"></i>
+                </a>
+              </li>
+              <li>
+                <a class="submenu-link" href="deanslisters_interface.html">
+                  Dean's Listers
+                  <i class="fa-solid fa-chevron-right"></i>
+                </a>
+              </li>
+              <li>
+                <a class="submenu-link" href="sections_interface.html">
+                  Sections <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                </li>
+              <li>
+                <a class="submenu-link" href="subjects_interface.html">
+                  Subjects
+                  <i class="fa-solid fa-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a class="nav-link active" href="#" data-page="organizations"><i class="fa-solid fa-users"></i> Organization & Clubs</a>
+          </li>
+          <li>
+            <a href="documents_interface.html" data-page="documents"><i class="fa-regular fa-file-word"></i> Document Tools</a>
+          </li>
+          <li>
+            <a href="reports_interface.html"><i class="fa-solid fa-chart-line"></i> Reports</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  
+    <section>
+      <div class="header">
+        <div class="left">
+            <div class="img-cont">
+              <img src="./assets/media/304880020_484105543722963_6792900679710469272_n.png" alt="">
+            </div>
+            <div class="headers">
+              <h1>College of Computer Science</h1>
+              <p>DEPARTMENT</p>
+            </div>
+        </div>
+        <div class="right-sec">
+          <a href="home_hub.html">
+            <i class="home fa-solid fa-house"></i>
+          </a>
+          
+          <button>
+            <div class="left">
+              <div class="img-cont">
+                <img src="./assets/media/blank-profile-picture-973460.svg" alt="dp">
+              </div>
+            </div>
+            <div class="right">
+              <h4>Christian Jireh Briol</h4>
+              <p>Pres-CCSO</p>
+            </div>
+            <i class="fa-solid fa-caret-down"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="org-main-cont">
+        <i>This is organizations & clubs page</i>
+        <div class="top-nav">
+          <div class="clubs-cont">
+            <button>CCSO</button>
+            <button>Permormance Club</button>
+            <button>Programming Club</button>
+          </div>
+          <div class="add-club-cont">
+            <button>Add Club</button>
+          </div>
+        </div>
+        <div class="officers-main-cont">
+          <div id="tree-container"></div>
+          
+        </div>
+      </div>
+    </section>
+
+    <div id="delete-modal" class="modal ">
+      <div class="delete-modal">
+        <div class="warning">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <p>Are you sure you want to remove 
+            <span id="faculty-to-delete-name">
+          </span> from 
+          <span id="entity-context">Faculty</span>?</p>
+        </div>
+        <div class="button-cont">
+          <button id="cancel-delete">No</button>
+          <button id="confirm-delete">Yes</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./assets/scripts/student_btn.js"></script>
+  <script>
+    const officers = [
+    {
+      name: 'John',
+      role: 'President',
+      year_level: '3',
+      image: './assets/media/blank-profile-picture-973460.svg'
+    },
+    {
+      name: 'Anna',
+      role: 'Vice President',
+      year_level: '3',
+      image: './assets/media/304880020_484105543722963_6792900679710469272_n.png'
+    },
+    {
+      name: 'Mark',
+      role: 'Secretary',
+      year_level: '2',
+      image: './assets/media/bdce5c78-8d3a-44d0-8036-0802e6ee59a5.jpg'
+    },
+    {
+      name: 'Jill',
+      role: 'Treasurer',
+      year_level: '2',
+      image: 'https://via.placeholder.com/80?text=Jill'
+    },
+    {
+      name: 'Tom',
+      role: 'Auditor',
+      year_level: '1',
+      image: 'https://via.placeholder.com/80?text=Tom'
+    },
+    {
+      name: 'Lucy',
+      role: 'P.R.O.',
+      year_level: '1',
+      image: 'https://via.placeholder.com/80?text=Lucy'
+    }
+  ];
+
+  const tree = document.getElementById('tree-container');
+
+  function createBox(officer, extraClass = '') {
+    const box = document.createElement('div');
+    box.className = `box ${extraClass}`.trim();
+    box.innerHTML = `
+      <div class="img-cont">
+        <img src="${officer.image}" alt="${officer.name}">
+      </div>
+      <div class="info-cont">
+        <h4>${officer.name}</h4>
+        <p>${officer.role}<p>
+        <span>Year ${officer.year_level}</span>
+      </div>
+    `;
+    return box;
+  }
+
+  function renderTree() {
+    tree.innerHTML = '';
+
+    if (officers.length === 0) return;
+
+    // Top center officer with unique class
+    const topOfficer = createBox(officers[0], 'first-officer');
+    tree.appendChild(topOfficer);
+
+    if (officers.length === 1) return;
+
+    // Left-right columns for rest
+    const row = document.createElement('div');
+    row.className = 'tree-row';
+
+    const leftCol = document.createElement('div');
+    leftCol.className = 'tree-column';
+
+    const rightCol = document.createElement('div');
+    rightCol.className = 'tree-column';
+
+    if (officers[1]) leftCol.appendChild(createBox(officers[1]));
+    if (officers[2]) rightCol.appendChild(createBox(officers[2]));
+
+    for (let i = 3; i < officers.length; i++) {
+      const targetCol = (i - 3) % 2 === 0 ? leftCol : rightCol;
+      targetCol.appendChild(createBox(officers[i]));
+    }
+
+    row.appendChild(leftCol);
+    row.appendChild(rightCol);
+    tree.appendChild(row);
+  }
+
+  renderTree();
+  </script>
+</body>
+</html>
